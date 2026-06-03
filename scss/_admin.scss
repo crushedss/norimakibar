@@ -1,0 +1,479 @@
+@use "mixins";
+
+// Hidden entirely on desktop and tablet — mobile only (max-width: 800px)
+#noriSecretTrigger,
+#noriAdminLogin,
+#noriAdminDashboard {
+  display: none !important;
+}
+
+@media screen and (max-width: 800px) {
+  #noriSecretTrigger {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #noriAdminLogin,
+  #noriAdminDashboard {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    flex-direction: column;
+    background: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+
+    &.nori-admin-overlay--visible {
+      transform: translateY(0);
+    }
+  }
+
+  body.nori-admin-open {
+    overflow: hidden;
+  }
+
+  .nori-admin-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    @include mixins.typeface;
+  }
+
+  .nori-admin-header {
+    flex-shrink: 0;
+    padding: 24px 20px 12px;
+    border-bottom: 1px solid black;
+
+    h1 {
+      font-weight: 200;
+      font-size: 28px;
+      text-align: center;
+      margin: 0 0 8px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+    }
+
+    p {
+      font-weight: 200;
+      font-size: 12px;
+      text-align: center;
+      margin: 0;
+      color: #808285;
+    }
+  }
+
+  .nori-admin-controls {
+    flex-shrink: 0;
+    border-bottom: 1px solid #f1f2f2;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .nori-admin-search {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 12px 20px 0;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    color: black;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #ed1c24;
+    }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  .nori-admin-category-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  .nori-admin-category-tab {
+    flex-shrink: 0;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    padding: 8px 14px;
+    border: 1px solid #f1f2f2;
+    background: white;
+    color: black;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &--active {
+      border-color: black;
+      background: black;
+      color: white;
+    }
+
+    &:hover:not(.nori-admin-category-tab--active) {
+      text-decoration: line-through;
+      text-decoration-color: red;
+    }
+  }
+
+  .nori-admin-alpha-nav {
+    flex-shrink: 0;
+    width: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    padding: 4px 0 12px 6px;
+    border-left: 1px solid #f1f2f2;
+    max-height: 100%;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  .nori-admin-alpha-btn {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 0;
+    text-transform: lowercase;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #808285;
+    cursor: pointer;
+    line-height: 1;
+    border-radius: 2px;
+
+    &:hover,
+    &--active {
+      color: black;
+      background: #f1f2f2;
+    }
+  }
+
+  .nori-admin-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    cursor: pointer;
+    padding: 4px 0;
+    color: black;
+
+    &:hover {
+      text-decoration: line-through;
+      text-decoration-color: red;
+    }
+  }
+
+  .nori-admin-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 8px 12px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nori-admin-body-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .nori-admin-main {
+    flex: 1;
+    min-width: 0;
+    padding-right: 4px;
+  }
+
+  .nori-admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 320px;
+    margin: 40px auto 0;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+    }
+  }
+
+  .nori-admin-input {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    color: black;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #ed1c24;
+    }
+  }
+
+  textarea.nori-admin-input {
+    resize: vertical;
+    min-height: 48px;
+    line-height: 1.4;
+  }
+
+  .nori-admin-btn {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    padding: 14px 24px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+    cursor: pointer;
+    margin-top: 12px;
+
+    &:hover:not(:disabled) {
+      text-decoration: line-through;
+      text-decoration-color: red;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    &--primary {
+      background: black;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background: white;
+        color: black;
+        text-decoration: line-through;
+        text-decoration-color: red;
+      }
+    }
+  }
+
+  .nori-admin-toolbar {
+    flex-shrink: 0;
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    border-top: 1px solid black;
+    background: white;
+
+    .nori-admin-btn {
+      flex: 1;
+      margin-top: 0;
+    }
+  }
+
+  .nori-admin-status {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 200;
+    color: #ed1c24;
+    letter-spacing: 1px;
+    min-height: 16px;
+    margin-top: 8px;
+  }
+
+  .nori-admin-section {
+    margin-bottom: 32px;
+
+    > h2 {
+      font-weight: 200;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f2f2;
+    }
+  }
+
+  .nori-admin-letter-group {
+    margin-bottom: 24px;
+  }
+
+  .nori-admin-letter-heading {
+    font-weight: 200;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    margin: 0 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #f1f2f2;
+    color: #808285;
+    scroll-margin-top: 8px;
+  }
+
+  .nori-admin-results-meta {
+    font-weight: 200;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #808285;
+    margin-bottom: 16px;
+    text-transform: lowercase;
+  }
+
+  .nori-admin-empty {
+    font-weight: 200;
+    font-size: 14px;
+    color: #808285;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .nori-admin-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f2f2;
+
+    .nori-admin-item-category {
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+      color: #ed1c24;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: lowercase;
+      color: #808285;
+    }
+  }
+
+  .nori-admin-versions {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid black;
+
+    > h2 {
+      font-weight: 200;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+      margin: 0 0 16px;
+    }
+  }
+
+  .nori-admin-versions-empty {
+    font-weight: 200;
+    font-size: 13px;
+    color: #808285;
+    margin: 0;
+  }
+
+  .nori-admin-version {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f2f2;
+  }
+
+  .nori-admin-version-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nori-admin-version-date {
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  .nori-admin-version-meta {
+    font-weight: 200;
+    font-size: 11px;
+    color: #808285;
+  }
+
+  .nori-admin-version-restore {
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    background: none;
+    border: 1px solid black;
+    padding: 6px 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover {
+      text-decoration: line-through;
+      text-decoration-color: red;
+    }
+  }
+}

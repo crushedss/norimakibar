@@ -1,0 +1,390 @@
+/*--MOBILE--*/
+@media screen and (max-width: 800px){
+  html {
+    scroll-padding-top: 88px;
+  }
+
+  #header{
+    left: 0;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    .header-logo{
+      position: static;
+      margin: 0;
+      flex-shrink: 1;
+      min-width: 0;
+      line-height: 0;
+      transform: none;
+      left: auto;
+
+      img{
+        width: 120px;
+        height: auto;
+        max-width: calc(100vw - 100px);
+        display: block;
+      }
+    }
+
+    #navToggle{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 32px;
+      height: 22px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
+
+      &:active {
+        transform: scale(0.88);
+      }
+
+      .nav-toggle-line{
+        display: block;
+        height: 1px;
+        width: 100%;
+        background: black;
+        border-radius: 1px;
+        transform-origin: center;
+        will-change: transform, opacity, width;
+        transition:
+          transform 0.55s cubic-bezier(0.68, -0.45, 0.27, 1.55),
+          opacity 0.35s ease,
+          width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-toggle-line:first-child {
+        transition-delay: 0.04s;
+      }
+
+      .nav-toggle-line--short{
+        width: 62%;
+        align-self: flex-end;
+        transition-delay: 0.08s;
+      }
+
+      .nav-toggle-line:last-child {
+        transition-delay: 0.12s;
+      }
+
+      &[aria-expanded="true"] {
+        .nav-toggle-line:first-child {
+          transform: translateY(10.5px) rotate(45deg) scaleX(1.12);
+          transition-delay: 0.1s;
+        }
+
+        .nav-toggle-line--short {
+          opacity: 0;
+          width: 0;
+          transform: rotate(90deg) scaleX(0);
+          transition-delay: 0.04s;
+        }
+
+        .nav-toggle-line:last-child {
+          transform: translateY(-10.5px) rotate(-45deg) scaleX(1.12);
+          transition-delay: 0.1s;
+        }
+      }
+    }
+
+    nav{
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 20px 24px 24px;
+      background: white;
+      border-bottom: 1px solid #f1f2f2;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-22px) scale(0.98);
+      transform-origin: top center;
+      pointer-events: none;
+      box-shadow: 0 8px 24px rgba(black, 0.06);
+      transition:
+        opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.55s;
+
+      &.nav-open{
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+
+        li {
+          animation: nav-item-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+          @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+              animation-delay: #{0.06 + ($i * 0.05)}s;
+            }
+          }
+        }
+
+        .nav-menu-group {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .nav-submenu {
+            width: 100%;
+            padding: 6px 0 0 14px;
+
+            li {
+              padding: 0 0 10px;
+
+              &:last-child {
+                padding-bottom: 4px;
+              }
+
+              a {
+                font-size: 14px;
+                letter-spacing: 2px;
+                opacity: 0.72;
+              }
+            }
+          }
+        }
+      }
+
+      ul{
+        display: block;
+
+        li{
+          padding: 0 0 14px;
+
+          &:last-child{
+            padding-bottom: 0;
+          }
+
+          a{
+            font-size: 16px;
+            letter-spacing: 3px;
+          }
+        }
+      }
+    }
+
+    hr{
+      display: none;
+    }
+  }
+
+  body.nav-menu-open {
+    overflow: hidden;
+  }
+
+  @keyframes nav-item-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #categories.menu-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding: 88px 0 28px;
+    min-height: auto;
+
+    .menu-col {
+      display: contents;
+      gap: 0;
+    }
+
+    #starters {
+      order: 1;
+    }
+
+    #ramen {
+      order: 2;
+      max-width: 100%;
+    }
+
+    #rolls {
+      order: 3;
+    }
+
+    #creations {
+      order: 4;
+    }
+
+    #sweets {
+      order: 5;
+    }
+
+    .menu-col > .food,
+    #ramen {
+      padding-left: 16px;
+      padding-right: calc(min(135px, 36vw) + 16px);
+      max-width: 100%;
+      box-sizing: border-box;
+      --menu-price-col: 34px;
+    }
+
+    #allergenNotice {
+      order: 99;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-top: 12px;
+      padding: 0 16px;
+      padding-right: calc(min(135px, 36vw) + 20px);
+
+      .allergen-notice__text {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 10px;
+        line-height: 1.5;
+        text-align: left;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+    }
+
+    #smallText {
+      order: 98;
+      position: fixed;
+      right: 6px;
+      bottom: 10px;
+      width: min(135px, 36vw);
+      padding: 8px 3px 2px 3px;
+    }
+  }
+
+  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) {
+    #hotSake, #coldSake, #onTap, #bottles, #plumWine, #whiteWine, #redWine, #cocktails, #spirits, #info {
+      padding-left: 10px;
+
+      h1 {
+        text-align: left;
+      }
+
+      h4 {
+        padding-left: 0;
+        text-align: left;
+      }
+    }
+
+    #hotSake {
+      top: 96px;
+    }
+
+    #coldSake {
+      top: 325px;
+    }
+
+    #onTap {
+      top: 850px;
+    }
+
+    #bottles {
+      top: 1050px;
+    }
+
+    #plumWine,
+    #whiteWine,
+    #redWine {
+      top: 1225px;
+    }
+
+    #cocktails {
+      top: 1700px;
+    }
+
+    #spirits {
+      top: 1900px;
+    }
+  }
+
+  .food ul {
+    padding: 0;
+    left: 0;
+
+    h3 {
+      width: auto;
+    }
+  }
+
+  #concept {
+    margin-top: 22vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(520px, 88vw);
+  }
+
+  #categories {
+    margin-left: 0;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+/*--TABLET--*/
+@media screen and (min-width:801px) and (max-width:1030px){
+  #header{
+    img{
+      margin-left: 40vw;
+    }
+    nav{
+      margin-left: 13vw;
+    }
+  }
+  #categories.menu-layout {
+    max-width: min(860px, calc(100vw - 32px));
+    column-gap: clamp(32px, 5vw, 56px);
+    padding-top: 176px;
+  }
+
+  #categories.drinks-layout {
+    max-width: min(860px, calc(100vw - 32px));
+
+    #drinks {
+      column-gap: clamp(32px, 5vw, 56px);
+    }
+  }
+
+  #concept{
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 34vh;
+    width: min(560px, 88vw);
+  }
+
+  #categories{
+    margin-left: 0;
+  }
+
+  #smallText{
+    right: 45vw;
+    bottom: inherit;
+    top: 350px;
+  }
+}

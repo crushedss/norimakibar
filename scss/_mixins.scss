@@ -1,0 +1,89 @@
+$font-family: mr-eaves-modern, sans-serif;
+
+@mixin typeface {
+  font-family: $font-family;
+}
+
+@mixin line{
+  background-color: black;
+  color: black;
+  width: 26vw;
+  height: 1px;
+  border: white;
+}
+
+@mixin title{
+  @include typeface;
+  h1{
+  font-weight: 200;
+  font-size: 28px;
+  text-align: center;
+  }
+}
+
+@mixin link{
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  a:hover{
+    text-decoration: line-through;
+    text-decoration-color: red;
+        }
+}
+
+@mixin item{
+    @include typeface;
+    font-weight: 300;
+    font-size: 18px;
+    width: 200px;
+    margin: 0px;
+    // white-space: nowrap;
+}
+
+@mixin price{
+  @include typeface;
+  font-weight: 400;
+  font-size: 14px;
+  width: 80px;
+  margin: 0px 0px 15px 77px;
+  // margin-left: 77px;
+  // margin-bottom: 15px;
+}
+
+@mixin description{
+  @include typeface;
+  font-weight: 200;
+  width: 200px;
+  font-size: 12px;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+@mixin copy{
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+@mixin toasted{
+  background-color: rgba(black, .37);
+  border-style: dashed;
+  border-color: red;
+  border-radius: 10px;
+  border-width: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  h5{
+    color: white;
+    font-size: 22px;
+    font-weight: 300;
+    height: 50px;
+    margin: 0;
+    padding-top: 11px;
+  }
+}

@@ -1,0 +1,171 @@
+@use "mixins";
+
+body{
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+  overflow-x: hidden;
+}
+
+#categories{
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#concept{
+  @include mixins.title;
+  margin-top: 40vh;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(640px, 88vw);
+  box-sizing: border-box;
+  p{
+    margin-left: 0;
+    width: auto;
+    text-align: center;
+  }
+}
+
+// Drinks + location keep absolute layout (legacy — overridden by .drinks-layout / .location-layout)
+#categories:not(.drinks-layout):not(.location-layout) {
+  #hotSake, #coldSake, #onTap, #bottles, #wine, #cocktails, #spirits, #info{
+  @include mixins.title;
+  z-index: 0;
+  position: absolute;
+  overflow: visible;
+  top: 280px;
+  scroll-margin-top: 300px;
+  li{
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    height: auto;
+    min-height: 1em;
+    margin-bottom: 18px;
+    h2{
+      @include mixins.item;
+    }
+    h3{
+      @include mixins.price;
+    }
+  }
+  h4{
+    @include mixins.description;
+    margin-bottom: 22px;
+  }
+  }
+
+  #drinks li{
+    height: unset;
+  }
+
+  #drinks{
+    position: relative;
+    justify-content: flex-start;
+    width: -webkit-fill-available;
+    margin: 0 10vw;
+    gap: 22vw;
+    h1{
+      text-align: left;
+      padding-left: 17%;
+    }
+  }
+
+  #hotSake, #plumWine{
+    h1{
+      margin-bottom: 3px;
+      text-align: left;
+      padding-left: 20%;
+    }
+    h4{
+      text-align: left;
+      padding-left: 20%;
+    }
+  }
+
+  #plumWine{
+    h1, h4{
+      padding-left: 17%;
+    }
+  }
+
+  #coldSake{
+    top: 420px;
+  }
+
+  #onTap{
+    top: 1120px;
+  }
+
+  #bottles{
+    top: 1350px;
+  }
+
+  #cocktails{
+    top: 730px;
+  }
+
+  #whiteWine, #redWine{
+    ul{
+      h2{
+        @include mixins.item;
+      }
+      li{
+        h3{
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+}
+
+#smallText{
+  position: fixed;
+  left: inherit;
+  right: 15px;
+  top: inherit;
+  bottom: 30px;
+  width: 145px;
+  font-weight: 200;
+  font-size: 10px;
+  color: rgba(black, 0.48);
+  text-align: left;
+  z-index: 4;
+  ul{
+    padding: 5px;
+    margin: 5px;
+    li{
+      margin: 0px;
+      display: grid;
+      grid-template-columns: 12px minmax(0, 1fr);
+      column-gap: 3px;
+      list-style: none;
+      padding-bottom: 6px;
+      text-align: left;
+      span{
+        grid-column: 1;
+        width: 12px;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 0;
+        text-align: left;
+        color: rgba(black, 0.52);
+
+        &.legend-gf{
+          font-size: 9px;
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+}
+
+footer{
+  display: none;
+}

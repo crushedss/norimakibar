@@ -1,0 +1,15 @@
+{
+  "name": "norimakibar",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n sass,web -c cyan,magenta \"npm run sass:watch\" \"npm run serve\"",
+    "serve": "live-server --port=5173 --open=/concept --entry-file=index.html",
+    "sass:watch": "sass --watch --source-map scss/main.scss:css/main.css",
+    "sass:build": "sass --source-map scss/main.scss:css/main.css"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "live-server": "^1.2.2",
+    "sass": "^1.83.0"
+  }
+}

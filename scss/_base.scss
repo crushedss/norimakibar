@@ -1,0 +1,286 @@
+@use "mixins";
+
+html{
+@include mixins.typeface;
+font-weight: 300;
+width: 100%;
+scroll-padding-top: 200px;
+scrollbar-width: thin;
+scrollbar-color: rgba(black, 0.22) transparent;
+
+&::-webkit-scrollbar {
+  width: 4px;
+}
+
+&::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: rgba(black, 0.22);
+  border-radius: 2px;
+}
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+label,
+span {
+@include mixins.typeface;
+}
+
+#header{
+  z-index: 100;
+  position: fixed;
+  background: linear-gradient(180deg, white 92%, white 97%, rgba(white, 0.98) 100%);
+  top: 0px;
+  width: 100vw;
+  height: 200px;
+  left: 0px;
+
+  .header-logo{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 24px;
+    z-index: 101;
+    line-height: 0;
+    text-decoration: none;
+
+    img{
+      width: 175px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  #navToggle{
+    display: none;
+  }
+
+  nav{
+    position: fixed;
+    margin-top: 108px;
+    margin-left: 18vw;
+    ul{
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li{
+        letter-spacing: 3px;
+        @include mixins.link;
+
+        &.nav-menu-group {
+          position: relative;
+        }
+      }
+
+      .nav-menu-toggle {
+        @include mixins.typeface;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 7px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: black;
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: lowercase;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover .nav-menu-label {
+          text-decoration: line-through;
+          text-decoration-color: red;
+        }
+      }
+
+      .nav-chevron {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        transform: rotate(45deg);
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        flex-shrink: 0;
+      }
+
+      .nav-menu-group.is-open .nav-chevron {
+        transform: rotate(-135deg);
+      }
+
+      .nav-submenu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+
+      .nav-menu-group.is-open .nav-submenu:not([hidden]) {
+        display: block;
+      }
+    }
+  }
+
+  hr{
+    position: fixed;
+    margin-top: 178px;
+    margin-left: 38vw;
+    @include mixins.line;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  html {
+    scroll-padding-top: 176px;
+  }
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 168px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+
+    .header-logo {
+      position: relative;
+      left: auto;
+      transform: none;
+      margin-top: 20px;
+    }
+
+    nav {
+      position: relative;
+      margin: 14px 0 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: clamp(18px, 3.2vw, 42px);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          flex: 0 0 auto;
+          padding: 0;
+          white-space: nowrap;
+
+          &.nav-menu-group {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(18px, 3.2vw, 42px);
+          }
+        }
+
+        .nav-chevron {
+          border-right: 1px solid black;
+          border-top: 1px solid black;
+          border-bottom: none;
+          transform: rotate(45deg);
+        }
+
+        .nav-menu-group.is-open .nav-chevron {
+          transform: rotate(-135deg);
+        }
+
+        .nav-menu-group .nav-submenu {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          gap: clamp(18px, 3.2vw, 42px);
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          max-width: 0;
+          opacity: 0;
+          pointer-events: none;
+          transition:
+            max-width 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 0.24s ease;
+
+          li {
+            flex: 0 0 auto;
+            padding: 0;
+
+            a {
+              font-size: 14px;
+              letter-spacing: 2px;
+              opacity: 0.72;
+            }
+          }
+        }
+
+        .nav-menu-group .nav-submenu[hidden] {
+          display: none !important;
+          max-width: 0 !important;
+          opacity: 0 !important;
+        }
+
+        .nav-menu-group.is-open .nav-submenu:not([hidden]) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: baseline;
+          max-width: 220px;
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    hr {
+      position: relative;
+      margin: 12px auto 0;
+      width: min(520px, 88vw);
+    }
+  }
+}
+
+#message{
+  text-align: left;
+  padding-left: 2vw;
+  span{
+    color: red;
+  }
+}
+
+footer{
+  display: none;
+}
+
+#starters, #creations, #rolls, #ramen, #sweets, #allergenNotice, #smallText, .food, #drinks, #location{
+  display: none;
+}
+
+#concept{
+  display: block;
+}

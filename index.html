@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nori Maki Bar - Fort Collins Sushi Resaurant</title>
+    <meta name="description" content="company DESC HERE.">
+    <meta name="keywords" content="sushi, resaurant, sushi restaurant, food, dinner, lunch, drinks, fort collins, fort collins food, fort collins sushi, sushi restaurant">
+    <meta name="author" content="Joanne Liu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://include.typekit.net/nas6miu.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div id="header">
+      <a href="/concept" id="logoClick" class="header-logo click" aria-label="home">
+        <img src="img/nori_logo.png?v=4" alt="nori maki bar logo">
+      </a>
+      <button type="button" id="navToggle" aria-label="open navigation" aria-expanded="false">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line nav-toggle-line--short"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <nav id="siteNav">
+        <ul>
+          <li><a class="click" id="conceptClick" href="/concept">concept</a></li>
+          <li class="nav-menu-group">
+            <button type="button" class="nav-menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuSubnav">
+              <span class="nav-menu-label">menu</span>
+              <span class="nav-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-submenu" id="menuSubnav" hidden>
+              <li><a class="click" id="lunchClick" href="/lunch">lunch</a></li>
+              <li><a class="click" id="dinnerClick" href="/dinner">dinner</a></li>
+            </ul>
+          </li>
+          <li><a class="click" id="drinksClick" href="/drinks">drinks</a></li>
+          <li><a class="click" id="locationClick" href="/location-hours">location + hours</a></li>
+        </ul>
+      </nav>
+      <hr>
+      <!-- <div id="message"><br><br>*<span>*</span>**<p>For the safety of our customers, staff, + community: <br>Nori Maki Bar will not be offering dine-in. <br> <br> <span>Thank you</span> for your continual support + hope to see you again soon.</p>*<span>*</span>**<br><br></div> -->
+      <!-- <div id="message"><br><br>*<span>*</span>**<p><br>Nori Maki Bar is offering orders for pick-up and delivery only.<br></p>*<span>*</span>**<br><br></div> -->
+    </div> <!--header-->
+
+    <div id="categories">
+      <div id="concept">
+        <h1>concept</h1>
+        <p>Nori Maki Bar is a contemporary take on classic maki rolls — a fusion of aesthetics and unique flavors to create a complete dining experience. <br><br> Local. Fresh. Simple. Nori.
+          <!-- <div id="message"><br><br>
+            <br><span>Dine-in</span> + <span>Take-out</span>: <br>Mon - Sat —— 11AM - 9PM<br> Sun —— 4PM - 9PM <br><br> <span>*</span> reservations recommended <br>for 25% capacity requirement.
+            </p></div></p> -->
+
+        <button id="noriSecretTrigger" type="button" aria-hidden="true" tabindex="-1"></button>
+      </div>
+
+
+
+
+      <div class="menu-col menu-col--left">
+      <div class="food" id="starters">
+        <h1>starters</h1>
+        <ul>
+          <li><h2>miso soup</h2>
+              <h3>4</h3>
+          </li>
+          <li><h2>edamame</h2>
+              <h3>8</h3>
+          </li>
+          <li>
+            <h2>seaweed salad</h2>
+            <h3>8</h3>
+          </li>
+          <li>
+            <h2>beef gyoza</h2>
+            <h3>9</h3>
+          </li>
+          <li>
+            <h2>harumaki</h2>
+            <h3>8</h3>
+          </li>
+          <li>
+            <h2>two piece nigiri *</h2>
+            <h3>9</h3>
+          </li>
+          <h4>salmon, tuna, or yellowtail</h4>
+          <li>
+            <h2>sashimi *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>2 salmon, 2 tuna, + 2 yellowtail</h4>
+          <li>
+            <h2>spicy sashimi bowl *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>salmon, tuna, + yellowtail</h4>
+          <li>
+            <h2>nori bun</h2>
+            <h3>8</h3>
+          </li>
+          <li>
+            <h2>spider bun</h2>
+            <h3>20</h3>
+          </li>
+          <li>
+            <h2>shumai</h2>
+            <h3>8</h3>
+          </li>
+          <li>
+            <h2>katsu</h2>
+            <h3>12</h3>
+          </li>
+          <h4>chicken or pork</h4>
+          <li>
+            <h2>chicken teriyaki</h2>
+            <h3>12</h3>
+          </li>
+          <li>
+            <h2>vegetable tempura</h2>
+            <h3>10</h3>
+          </li>
+        </ul>
+      </div> <!--starters-->
+
+      <div class="food" id="rolls">
+        <div class="rolls-head">
+          <h1 id="shift">rolls</h1>
+          <p class="rolls-dinner-note">2 rolls for 17</p>
+        </div>
+        <ul>
+          <li>
+            <h2>abokado v</h2>
+            <h3>8</h3>
+          </li>
+          <h4>avocado</h4>
+          <li>
+            <h2>kappa v</h2>
+            <h3 class="dinner">8</h3>
+          </li>
+          <h4>cucumber</h4>
+          <li>
+            <h2>veggie v</h2>
+            <h3 class="dinner">9</h3>
+          </li>
+          <h4>avocado, cucumber, seaweed salad, + tempura sweet potato</h4>
+          <li>
+            <h2>california</h2>
+            <h3 class="dinner">9</h3>
+          </li>
+          <h4>avocado + crabmeat</h4>
+          <li>
+            <h2>eel avocado</h2>
+            <h3 class="dinner">11</h3>
+          </li>
+          <h4>eel + avocado</h4>
+          <li>
+            <h2>rock and roll *</h2>
+            <h3 class="dinner">11</h3>
+          </li>
+          <h4>salmon, avocado, + cream cheese</h4>
+          <li>
+            <h2>shrimp tempura</h2>
+            <h3 class="dinner">12</h3>
+          </li>
+          <h4>tempura shrimp, avocado, cucumber, lettuce, + masago</h4>
+          <li>
+            <h2>spicy salmon *</h2>
+            <h3 class="dinner">11</h3>
+          </li>
+          <h4>spicy salmon + avocado</h4>
+          <li>
+            <h2>spicy tuna *</h2>
+            <h3 class="dinner">11</h3>
+          </li>
+          <h4>spicy tuna + avocado</h4>
+          <li>
+            <h2>spicy yellowtail *</h2>
+            <h3 class="dinner">11</h3>
+          </li>
+          <h4>spicy yellowtail + avocado</h4>
+          <li>
+            <h2>spider</h2>
+            <h3 class="dinner">13</h3>
+          </li>
+          <h4>tempura softshell crab, avocado, cucumber, lettuce, + masago</h4>
+        </ul>
+      </div>
+      <!--rolls-->
+
+      <div class="food" id="sweets">
+        <h1>sweets</h1>
+        <ul>
+          <li>
+            <h2>mochi ice cream</h2>
+            <h3>2</h3>
+          </li>
+          <li>
+            <h2>tempura banana</h2>
+            <h3>6</h3>
+          </li>
+          <li>
+            <h2>fried icecream</h2>
+            <h3>6</h3>
+          </li>
+        </ul>
+      </div>
+
+      </div>
+
+      <div class="menu-col menu-col--right">
+      <div class="food" id="ramen">
+        <div class="ramen-head">
+          <h1>ramen</h1>
+          <span class="ramen-tag">create a bowl</span>
+        </div>
+        <div class="ramen-menu">
+          <p class="menu-detail ramen-includes">fishcake, egg, nori, + scallion</p>
+          <p class="menu-subhead ramen-step">1 base</p>
+          <div class="ramen-options">
+            <p class="menu-detail">miso</p>
+            <p class="menu-detail">shoyu</p>
+            <p class="menu-detail">tonkatsu</p>
+          </div>
+          <p class="menu-subhead ramen-step">2 main</p>
+          <ul class="menu-priced-list">
+            <li>
+              <h2>veggie</h2>
+              <h3>16</h3>
+            </li>
+            <li>
+              <h2>chasu</h2>
+              <h3>17</h3>
+            </li>
+            <li>
+              <h2>katsu</h2>
+              <h3>17</h3>
+            </li>
+            <li>
+              <h2>seafood</h2>
+              <h3>19</h3>
+            </li>
+            <li>
+              <h2>duck</h2>
+              <h3>20</h3>
+            </li>
+          </ul>
+          <p class="menu-subhead ramen-step">3 spice</p>
+          <div class="ramen-options">
+            <p class="menu-detail">easy</p>
+            <p class="menu-detail">medium</p>
+            <p class="menu-detail">hot</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="food" id="creations">
+        <h1>creations</h1>
+        <ul>
+          <li>
+            <h2>beauty and the beast *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>spicy tuna, avocado, jalapeno, masago, topped with strawberry, masago, + mango sauce</h4>
+          <li>
+            <h2>black forest *</h2>
+            <h3>18</h3>
+          </li>
+          <h4>salmon, cream cheese, topped with tuna, avocado</h4>
+          <li>
+            <h2>bonzai *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>tempura shrimp, avocado, topped with seared tuna, masago, + sesame seed</h4>
+          <li>
+            <h2>cosmo *</h2>
+            <h3>18</h3>
+          </li>
+          <h4>spicy salmon, spicy yellowtail, crabmeat, avocado</h4>
+          <li>
+            <h2>dynamite</h2>
+            <h3>15</h3>
+          </li>
+          <h4>california roll topped with baked scallop, spicy mayo, + masago</h4>
+          <li>
+            <h2>fiesta *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>crabmeat, cilantro, jalapeno, tomato, tempura crumbs, topped with seared salmon</h4>
+          <li>
+            <h2>fire and ice *</h2>
+            <h3>14</h3>
+          </li>
+          <h4>crab meat, cucumber, sprouts, cream cheese, topped with spicy tuna</h4>
+          <li>
+            <h2>garden *</h2>
+            <h3>15</h3>
+          </li>
+          <h4>salmon, cream cheese, topped with avocado, black tobiko, + wasabi tobiko</h4>
+          <li>
+            <h2>heart attack</h2>
+            <h3>14</h3>
+          </li>
+          <h4>tempura shrimp, tempura jalapeno, topped with chopped avocado and cucumber + spicy hoisin sauce</h4>
+          <li>
+            <h2>honeymoon *</h2>
+            <h3>19</h3>
+          </li>
+          <h4>spicy yellowtail, avocado, topped with salmon, tuna, + honeymoon sauce</h4>
+          <li>
+            <h2>mango tango *</h2>
+            <h3>19</h3>
+          </li>
+          <h4>tuna, yellowtail, apple, topped with salmon, mango, + special mango sauce</h4>
+          <li>
+            <h2>ohana</h2>
+            <h3>17</h3>
+          </li>
+          <h4>unagi, cream cheese, topped with crabmeat, jalapeno, masago, + spicy mayo</h4>
+          <li>
+            <h2>rainbow *</h2>
+            <h3>20</h3>
+          </li>
+          <h4>shrimp tempura, topped with tuna, salmon, yellowtail, avocado, and masago</h4>
+          <li>
+            <h2>paradise gf</h2>
+            <h3>17</h3>
+          </li>
+          <h4>steamed shrimp, asparagus, cucumber, topped with tuna, sliced mango + masago</h4>
+          <li>
+            <h2>tsunami *</h2>
+            <h3>18</h3>
+          </li>
+          <h4>spicy salmon, avocado, topped with seared sea bass, + special sauce</h4>
+          <li>
+            <h2>purple garden</h2>
+            <h3>13</h3>
+          </li>
+          <h4>steamed asparagus, avocado, cucumber, topped with mashed purple yam</h4>
+          <li>
+            <h2>red devil *</h2>
+            <h3>16</h3>
+          </li>
+          <h4>shrimp tempura, cream cheese, cucumber, topped with seared tuna + wasabi tobiko</h4>
+          <li>
+            <h2>black dragon</h2>
+            <h3>18</h3>
+          </li>
+          <h4>shrimp tempura, cucumber, topped with unagi + masago</h4>
+          <li>
+            <h2>red dragon</h2>
+            <h3>18</h3>
+          </li>
+          <h4>unagi, cucumber, topped with tuna + masago</h4>
+          <li>
+            <h2>orange dragon</h2>
+            <h3>18</h3>
+          </li>
+          <h4>unagi, cucumber, topped with salmon + masago</h4>
+          <li>
+            <h2>yellow dragon</h2>
+            <h3>19</h3>
+          </li>
+          <h4>unagi, cucumber, topped with yellowtail + masago</h4>
+          <li>
+            <h2>green dragon</h2>
+            <h3>18</h3>
+          </li>
+          <h4>unagi, cucumber, topped with avocado + masago</h4>
+        </ul>
+      </div>
+      <!--creations-->
+      </div>
+
+      <div class="food" id="smallText">
+        <ul>
+          <li><span>+</span> add $3 to make any roll crispy</li>
+          <hr>
+          <li><span class="legend-gf">gf</span> gluten free</li>
+          <li><span>v</span> vegetarian</li>
+          <li><span>f</span> lightly fried</li>
+          <li><span>*</span> consuming raw or undercooked seafood may increase your risk of foodborne illness.</li>
+        </ul>
+      </div>
+
+      <div class="food" id="allergenNotice">
+        <p class="allergen-notice__text">The following major food allergens are used as ingredients: Milk, Egg, Fish, Crustacean Shellfish, Tree Nuts, Peanuts, Wheat, Soy, and Sesame. Please notify staff for more information about these ingredients.</p>
+      </div>
+
+      <div id="drinks">
+        <div class="drinks-section" id="hotSake">
+          <h1>hot sake</h1>
+          <h4>hakutsuru imported junmai</h4>
+          <ul>
+            <li>
+              <h2>small</h2>
+              <!-- <h3>6</h3> -->
+            </li>
+            <li>
+              <h2>large</h2>
+              <!-- <h3>9</h3> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="coldSake">
+          <h1>cold sake</h1>
+          <ul>
+            <li>
+              <h2>hakutsuru tanrei junmai (hoinclude)</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <h4>balanced + smooth</h4>
+            <li>
+              <h2>hakushika chokara extra dry</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>dry + crisp</h4>
+            <li>
+              <h2>hakushika fresh and light</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>fresh + light</h4>
+            <li>
+              <h2>hakushika junmai ginjo</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>fruity + full body</h4>
+            <li>
+              <h2>hakutsuru junmai ginjo</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>smooth + flowery</h4>
+            <li>
+              <h2>hakutsuru organic junmai</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>dry + smooth</h4>
+            <li>
+              <h2>sayuri junmai nigori</h2>
+              <!-- <h3>13</h3> -->
+            </li>
+            <h4>creamy + sweet</h4>
+            <li>
+              <h2>kurosawa junmai nigori</h2>
+              <!-- <h3>16</h3> -->
+            </li>
+            <h4>light + fragrant</h4>
+            <li>
+              <h2>sho-une junmai daiginjo</h2>
+              <!-- <h3>20</h3> -->
+            </li>
+            <h4>rich + fruity</h4>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="onTap">
+          <h1>on tap</h1>
+          <ul>
+            <li>
+              <h2>asahi</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <li>
+              <h2>kirin</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <li>
+              <h2>sapporo</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <li>
+              <h2>juicy haze IPA</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <li>
+              <h2>odell sippin pretty</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="bottles">
+          <h1>bottles</h1>
+          <ul>
+            <li>
+              <h2>broccoli</h2>
+              <!-- <h3>4</h3> -->
+            </li>
+            <h4>coors light</h4>
+            <li>
+              <h2>the boys</h2>
+              <!-- <h3>4</h3> -->
+            </li>
+            <h4>bud light</h4>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="plumWine">
+          <h1>plum wine</h1>
+          <h4>hakutsuru</h4>
+          <ul>
+            <li>
+              <h2>glass</h2>
+              <!-- <h3>7</h3> -->
+            </li>
+            <li>
+              <h2>bottle</h2>
+              <!-- <h3>24</h3> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="whiteWine">
+          <h1>white wine</h1>
+          <ul>
+            <li>
+              <h2>athena chardonnay</h2>
+              <!-- <h3>8</h3> -->
+            </li>
+            <li>
+              <h2>j vineyards pinot gris</h2>
+              <!-- <h3>9</h3> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="redWine">
+          <h1>red wine</h1>
+          <ul>
+            <li>
+              <h2>athena cabernet sauvignon</h2>
+              <!-- <h3>8</h3> -->
+            </li>
+            <li>
+              <h2>rascal pinot noir</h2>
+              <!-- <h3>9</h3> -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="cocktails">
+          <h1>cocktails</h1>
+          <ul>
+            <li>
+              <h2>cline old fashion</h2>
+              <!-- <h3>11</h3> -->
+            </li>
+            <h4>bullet bourbon</h4>
+            <li>
+              <h2>grapetini</h2>
+              <!-- <h3>12</h3> -->
+            </li>
+            <h4>ciroc + grape juice + champagne</h4>
+            <li>
+              <h2>margarita</h2>
+              <!-- <h3>11</h3> -->
+            </li>
+            <h4>tequila + orange liquor + fresh citrus</h4>
+            <li>
+              <h2>tuell dirty martini</h2>
+              <!-- <h3>11</h3> -->
+            </li>
+            <h4>tito's + olive juice</h4>
+          </ul>
+        </div>
+
+        <div class="drinks-section" id="spirits">
+          <h1>spirits</h1>
+          <ul>
+            <li><h2>bacardi rum</h2></li>
+            <li><h2>bulleit whiskey</h2></li>
+            <li><h2>captain morgan rum</h2></li>
+            <li><h2>ciroc vodka</h2></li>
+            <li><h2>crown royal whisky</h2></li>
+            <li><h2>jose cuervo gold tequila</h2></li>
+            <li><h2>tanqueray gin</h2></li>
+          </ul>
+        </div>
+      </div><!--drinks-->
+
+      <div id="location">
+        <div id="info">
+          <h1>hours</h1>
+          <p class="location-detail">dine-in + take-out</p>
+          <p class="location-detail">mon–sat — 11am - 9pm</p>
+          <p class="location-detail location-detail--gap">sun — 4pm - 9pm</p>
+          <p class="location-contact">
+            <a id="contact" href="tel:(970)930-6254">(970) 930-6254</a>
+          </p>
+          <button type="button" id="noriAddress">200 a walnut street, fort collins, co 80524</button>
+          <div id="toast">
+            <h5>- address copied -</h5>
+          </div>
+        </div>
+        <div id="map">
+          <iframe
+            title="nori maki bar map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=200+A+Walnut+Street,+Fort+Collins,+CO+80524&amp;z=16&amp;output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div><!--categories-->
+
+    <footer><a id="foot"href="tel:(970)930-6254">(970) 930-6254 </a><br><br> © 2026 Maki LLC All rights reserved.</footer>
+
+    <div id="noriAdminLogin">
+      <div class="nori-admin-panel">
+        <button type="button" class="nori-admin-close" id="noriAdminLoginClose">close</button>
+        <div class="nori-admin-header">
+          <h1>sign in</h1>
+          <p>menu dashboard</p>
+        </div>
+        <div class="nori-admin-body">
+          <form class="nori-admin-form" id="noriAdminLoginForm">
+            <label>username<input type="text" class="nori-admin-input" id="noriAdminUsername" autocomplete="username"></label>
+            <label>password<input type="password" class="nori-admin-input" id="noriAdminPassword" autocomplete="current-password"></label>
+            <button type="submit" class="nori-admin-btn nori-admin-btn--primary">sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="noriAdminDashboard">
+      <div class="nori-admin-panel">
+        <button type="button" class="nori-admin-close" id="noriAdminDashboardClose">close</button>
+        <div class="nori-admin-header">
+          <h1>menu</h1>
+          <p>edit names, prices, and ingredients</p>
+        </div>
+        <div class="nori-admin-controls">
+          <input type="search" id="noriAdminSearch" class="nori-admin-search" placeholder="search menu..." autocomplete="off">
+          <nav id="noriAdminCategoryNav" class="nori-admin-category-nav" aria-label="menu categories"></nav>
+        </div>
+        <div class="nori-admin-body">
+          <div class="nori-admin-body-layout">
+            <div class="nori-admin-main">
+              <div id="noriAdminMenuList"></div>
+              <div class="nori-admin-versions">
+                <h2>version history</h2>
+                <div id="noriAdminVersions"></div>
+              </div>
+              <p class="nori-admin-status" id="noriAdminStatus"></p>
+            </div>
+            <nav id="noriAdminAlphaNav" class="nori-admin-alpha-nav" aria-label="a-z index"></nav>
+          </div>
+        </div>
+        <div class="nori-admin-toolbar">
+          <button type="button" class="nori-admin-btn" id="noriAdminLogout">sign out</button>
+          <button type="button" class="nori-admin-btn nori-admin-btn--primary" id="noriAdminSave" disabled>saved</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</html>
