@@ -364,6 +364,10 @@
 
   footer {
     display: none;
+
+    &#siteFooter.is-visible {
+      display: block;
+    }
   }
 }
 

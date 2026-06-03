@@ -1741,6 +1741,9 @@ footer {
   footer {
     display: none;
   }
+  footer#siteFooter.is-visible {
+    display: block;
+  }
 }
 /*--TABLET--*/
 @media screen and (min-width: 801px) and (max-width: 1030px) {
