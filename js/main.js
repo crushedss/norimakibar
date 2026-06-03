@@ -16,7 +16,8 @@ document.querySelector('#noriAddress').onclick = function() {
 }
 
 var ROUTES = {
-  '/concept': 'concept',
+  '/home': 'home',
+  '/concept': 'limited',
   '/limited': 'limited',
   '/lunch': 'lunch',
   '/dinner': 'dinner',
@@ -26,7 +27,7 @@ var ROUTES = {
 
 function normalizePath(path) {
   if (!path || path === '/' || path === '/index.html') {
-    return '/concept';
+    return '/home';
   }
 
   var clean = path.split('?')[0].split('#')[0];
@@ -34,7 +35,11 @@ function normalizePath(path) {
     clean = clean.slice(0, -1);
   }
 
-  return ROUTES[clean] ? clean : '/concept';
+  if (clean === '/limited') {
+    clean = '/concept';
+  }
+
+  return ROUTES[clean] ? clean : '/home';
 }
 
 function getRoutePath() {
@@ -102,9 +107,9 @@ function setHomeFooterVisible(isVisible) {
   footer.classList.toggle('is-visible', isVisible);
 }
 
-function showConcept() {
-  setMenuView('concept');
-  document.getElementById("concept").style.display = "block";
+function showHome() {
+  setMenuView('home');
+  document.getElementById("home").style.display = "block";
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "none";
@@ -114,7 +119,7 @@ function showConcept() {
 function showFoodMenu(meal) {
   setMenuView('food');
   setMealView(meal);
-  document.getElementById("concept").style.display = "none";
+  document.getElementById("home").style.display = "none";
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "none";
   setHomeFooterVisible(false);
@@ -147,7 +152,7 @@ function showFoodMenu(meal) {
 
 function showDrinks() {
   setMenuView('drinks');
-  document.getElementById("concept").style.display = "none";
+  document.getElementById("home").style.display = "none";
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "";
   document.getElementById("location").style.display = "none";
@@ -156,7 +161,7 @@ function showDrinks() {
 
 function showLocation() {
   setMenuView('location');
-  document.getElementById("concept").style.display = "none";
+  document.getElementById("home").style.display = "none";
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "";
@@ -164,11 +169,11 @@ function showLocation() {
 }
 
 function applyRoute(path) {
-  var page = ROUTES[path] || 'concept';
+  var page = ROUTES[path] || 'home';
 
   switch (page) {
-    case 'concept':
-      showConcept();
+    case 'home':
+      showHome();
       break;
     case 'limited':
       showFoodMenu('limited');
@@ -186,7 +191,7 @@ function applyRoute(path) {
       showLocation();
       break;
     default:
-      showConcept();
+      showHome();
   }
 }
 

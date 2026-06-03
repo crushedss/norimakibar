@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -n sass,web -c cyan,magenta \"npm run sass:watch\" \"npm run serve\"",
-    "serve": "live-server --port=5173 --open=/concept --entry-file=index.html",
+    "serve": "live-server --port=5173 --open=/home --entry-file=index.html",
     "sass:watch": "sass --watch --source-map scss/main.scss:css/main.css",
     "sass:build": "sass --source-map scss/main.scss:css/main.css"
   },

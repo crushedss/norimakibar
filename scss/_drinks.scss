@@ -5,17 +5,23 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
   column-gap: clamp(40px, 7vw, 72px);
   row-gap: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 
   #drinks {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
     column-gap: clamp(40px, 7vw, 72px);
     row-gap: 0;
     width: 100%;
-    margin: 0;
+    max-width: 100%;
+    margin: 0 auto;
     position: relative;
     top: auto;
   }

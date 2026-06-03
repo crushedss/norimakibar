@@ -173,7 +173,7 @@ span {
   hr{
     position: relative;
     margin: 12px auto 0;
-    width: min(520px, 88vw);
+    width: min(360px, 72vw);
     @include mixins.line;
   }
 }
@@ -274,6 +274,6 @@ footer{
   display: none;
 }
 
-#concept{
+#home{
   display: block;
 }

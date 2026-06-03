@@ -161,7 +161,7 @@ span {
 #header hr {
   position: relative;
   margin: 12px auto 0;
-  width: min(520px, 88vw);
+  width: min(360px, 72vw);
   background-color: black;
   color: black;
   width: 26vw;
@@ -250,7 +250,7 @@ footer {
   display: none;
 }
 
-#concept {
+#home {
   display: block;
 }
 
@@ -270,15 +270,15 @@ body {
   margin-right: 0;
 }
 
-#concept {
+#home {
   font-family: mr-eaves-modern, sans-serif;
 }
-#concept h1 {
+#home h1 {
   font-weight: 200;
   font-size: 28px;
   text-align: center;
 }
-#concept {
+#home {
   margin-top: 40vh;
   text-align: center;
   position: fixed;
@@ -287,14 +287,14 @@ body {
   width: min(640px, 88vw);
   box-sizing: border-box;
 }
-#concept p {
+#home p {
   margin-left: 0;
   width: auto;
   text-align: center;
 }
 
 @media screen and (max-width: 1030px) {
-  #concept {
+  #home {
     position: relative;
     top: auto;
     left: auto;
@@ -1076,17 +1076,23 @@ footer {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
   column-gap: clamp(40px, 7vw, 72px);
   row-gap: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 #categories.drinks-layout #drinks {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
   column-gap: clamp(40px, 7vw, 72px);
   row-gap: 0;
   width: 100%;
-  margin: 0;
+  max-width: 100%;
+  margin: 0 auto;
   position: relative;
   top: auto;
 }
@@ -1270,14 +1276,15 @@ footer {
   font-weight: 300;
   font-size: 18px;
   line-height: 1.5;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   max-width: 100%;
 }
 #categories.location-layout #info .location-detail--gap {
-  margin-top: 18px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 #categories.location-layout #info .location-contact {
-  margin: 22px 0 14px;
+  margin: 24px 0 16px;
 }
 #categories.location-layout #info a {
   font-family: mr-eaves-modern, sans-serif;
@@ -1342,12 +1349,15 @@ footer {
   min-height: 280px;
   border-radius: 2px;
   overflow: hidden;
+  background: white;
 }
 #categories.location-layout #map iframe {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+  filter: grayscale(1) brightness(1.06) contrast(0.92);
+  -webkit-filter: grayscale(1) brightness(1.06) contrast(0.92);
 }
 
 @media screen and (min-width: 801px) {
@@ -1703,7 +1713,7 @@ footer {
   .food ul h3 {
     width: auto;
   }
-  #concept {
+  #home {
     position: relative;
     top: auto;
     left: auto;
@@ -1716,7 +1726,7 @@ footer {
     box-sizing: border-box;
     text-align: center;
   }
-  #concept p {
+  #home p {
     margin-left: auto;
     margin-right: auto;
     max-width: min(520px, 100%);

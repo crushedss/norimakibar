@@ -16,7 +16,7 @@ body{
   margin-right: 0;
 }
 
-#concept{
+#home{
   @include mixins.title;
   margin-top: 40vh;
   text-align: center;
@@ -33,7 +33,7 @@ body{
 }
 
 @media screen and (max-width: 1030px) {
-  #concept {
+  #home {
     position: relative;
     top: auto;
     left: auto;
