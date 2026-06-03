@@ -95,12 +95,20 @@ function closeMenuSubnav() {
   }
 }
 
+function setHomeFooterVisible(isVisible) {
+  var footer = document.getElementById('siteFooter');
+  if (!footer) return;
+  footer.hidden = !isVisible;
+  footer.classList.toggle('is-visible', isVisible);
+}
+
 function showConcept() {
   setMenuView('concept');
   document.getElementById("concept").style.display = "block";
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "none";
+  setHomeFooterVisible(true);
 }
 
 function showFoodMenu(meal) {
@@ -109,6 +117,7 @@ function showFoodMenu(meal) {
   document.getElementById("concept").style.display = "none";
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "none";
+  setHomeFooterVisible(false);
 
   if (meal === 'limited') {
     $(".food").css("display", "none");
@@ -138,6 +147,7 @@ function showDrinks() {
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "";
   document.getElementById("location").style.display = "none";
+  setHomeFooterVisible(false);
 }
 
 function showLocation() {
@@ -146,6 +156,7 @@ function showLocation() {
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "";
+  setHomeFooterVisible(false);
 }
 
 function applyRoute(path) {

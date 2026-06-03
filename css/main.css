@@ -211,6 +211,41 @@ footer {
   display: none;
 }
 
+#siteFooter {
+  position: fixed;
+  left: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vh, 28px);
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-transform: lowercase;
+  font-weight: 200;
+  font-size: 11px;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.52);
+  pointer-events: none;
+}
+#siteFooter.is-visible {
+  display: block;
+}
+#siteFooter .home-footer__phone {
+  display: block;
+  margin: 0 0 4px;
+  color: rgba(0, 0, 0, 0.52);
+  text-decoration: none;
+  pointer-events: auto;
+}
+#siteFooter .home-footer__phone:hover {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  color: black;
+}
+#siteFooter .home-footer__copy {
+  margin: 0;
+  pointer-events: none;
+}
+
 #starters, #creations, #rolls, #ramen, #sweets, #allergenNotice, #smallText, .food, #drinks, #location {
   display: none;
 }
