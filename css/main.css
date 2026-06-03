@@ -43,33 +43,44 @@ span {
 #header {
   z-index: 100;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: linear-gradient(180deg, white 92%, white 97%, rgba(255, 255, 255, 0.98) 100%);
-  top: 0px;
-  width: 100vw;
-  height: 200px;
-  left: 0px;
+  min-height: 168px;
+  padding-bottom: 8px;
 }
 #header .header-logo {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 24px;
+  position: relative;
+  left: auto;
+  transform: none;
+  margin: 20px auto 0;
   z-index: 101;
   line-height: 0;
   text-decoration: none;
+  flex-shrink: 0;
 }
 #header .header-logo img {
   width: 175px;
   height: auto;
+  max-width: min(175px, 100vw - 40px);
   display: block;
+  margin: 0 auto;
 }
 #header #navToggle {
   display: none;
 }
 #header nav {
-  position: fixed;
-  margin-top: 108px;
-  margin-left: 18vw;
+  position: relative;
+  margin: 14px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
 }
 #header nav ul {
   display: flex;
@@ -134,9 +145,9 @@ span {
   display: block;
 }
 #header hr {
-  position: fixed;
-  margin-top: 178px;
-  margin-left: 38vw;
+  position: relative;
+  margin: 12px auto 0;
+  width: min(520px, 88vw);
   background-color: black;
   color: black;
   width: 26vw;
@@ -147,28 +158,6 @@ span {
 @media screen and (min-width: 801px) {
   html {
     scroll-padding-top: 176px;
-  }
-  #header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    min-height: 168px;
-    padding-bottom: 8px;
-    box-sizing: border-box;
-  }
-  #header .header-logo {
-    position: relative;
-    left: auto;
-    transform: none;
-    margin-top: 20px;
-  }
-  #header nav {
-    position: relative;
-    margin: 14px 0 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
   }
   #header nav ul {
     display: flex;
@@ -235,11 +224,6 @@ span {
     max-width: 220px;
     opacity: 1;
     pointer-events: auto;
-  }
-  #header hr {
-    position: relative;
-    margin: 12px auto 0;
-    width: min(520px, 88vw);
   }
 }
 #message {
@@ -1256,16 +1240,16 @@ footer {
   }
   #header {
     left: 0;
-    height: 72px;
-    display: flex;
+    min-height: 72px;
+    height: auto;
+    padding: 14px 56px 0 20px;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    box-sizing: border-box;
   }
   #header .header-logo {
-    position: static;
-    margin: 0;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
     flex-shrink: 1;
     min-width: 0;
     line-height: 0;
@@ -1275,14 +1259,19 @@ footer {
   #header .header-logo img {
     width: 120px;
     height: auto;
-    max-width: calc(100vw - 100px);
+    max-width: min(120px, 100vw - 120px);
     display: block;
+    margin: 0 auto;
   }
   #header #navToggle {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
     width: 32px;
     height: 22px;
     padding: 0;
@@ -1291,11 +1280,12 @@ footer {
     background: transparent;
     cursor: pointer;
     flex-shrink: 0;
+    z-index: 102;
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
   }
   #header #navToggle:active {
-    transform: scale(0.88);
+    transform: translateY(-50%) scale(0.88);
   }
   #header #navToggle .nav-toggle-line {
     display: block;
@@ -1318,6 +1308,9 @@ footer {
   #header #navToggle .nav-toggle-line:last-child {
     transition-delay: 0.12s;
   }
+  #header #navToggle[aria-expanded=true] {
+    transform: translateY(-50%);
+  }
   #header #navToggle[aria-expanded=true] .nav-toggle-line:first-child {
     transform: translateY(10.5px) rotate(45deg) scaleX(1.12);
     transition-delay: 0.1s;
@@ -1338,6 +1331,8 @@ footer {
     left: 0;
     right: 0;
     margin: 0;
+    width: 100%;
+    justify-content: flex-start;
     padding: 20px 24px 24px;
     background: white;
     border-bottom: 1px solid #f1f2f2;
