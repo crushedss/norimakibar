@@ -216,8 +216,7 @@
       }
     }
 
-    .rolls-lunch-note,
-    .rolls-dinner-note {
+    .rolls-lunch-note {
       @include menu-shared.menu-detail-text;
       grid-column: 2;
       justify-self: end;
@@ -382,10 +381,6 @@
 #categories.menu-layout.menu-meal-dinner {
   li:has(h3.dinner) h3:not(.dinner) {
     display: none;
-  }
-
-  #rolls .rolls-dinner-note {
-    display: block;
   }
 
   #ramen {
