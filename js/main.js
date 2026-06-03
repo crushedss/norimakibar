@@ -156,7 +156,7 @@ function showLocation() {
   $(".food").css("display", "none");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "";
-  setHomeFooterVisible(false);
+  setHomeFooterVisible(true);
 }
 
 function applyRoute(path) {
