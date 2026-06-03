@@ -2,66 +2,34 @@
 
 #categories.drinks-layout {
   @include menu-shared.menu-page-shell;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: clamp(40px, 7vw, 72px);
+  row-gap: 0;
 
   #drinks {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     column-gap: clamp(40px, 7vw, 72px);
-    row-gap: 52px;
-    align-items: start;
+    row-gap: 0;
     width: 100%;
     margin: 0;
     position: relative;
     top: auto;
   }
 
+  .menu-col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+  }
+
   .drinks-section {
     @include menu-shared.menu-section-block;
-  }
-
-  #hotSake {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  #coldSake {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  #onTap {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  #bottles {
-    grid-column: 1;
-    grid-row: 4;
-  }
-
-  #plumWine {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  #whiteWine {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  #redWine {
-    grid-column: 2;
-    grid-row: 3;
-  }
-
-  #cocktails {
-    grid-column: 2;
-    grid-row: 4;
-  }
-
-  #spirits {
-    grid-column: 2;
-    grid-row: 5;
   }
 }
 
@@ -71,23 +39,44 @@
     margin-right: auto;
     max-width: 100%;
     padding: 88px 0 28px;
+    display: block;
 
     #drinks {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 44px;
+    }
+
+    .menu-col {
+      display: contents;
     }
 
     .drinks-section {
       padding-left: 16px;
       padding-right: 16px;
       max-width: 100%;
+      box-sizing: border-box;
     }
+
+    #hotSake { order: 1; }
+    #coldSake { order: 2; }
+    #onTap { order: 3; }
+    #bottles { order: 4; }
+    #plumWine { order: 5; }
+    #whiteWine { order: 6; }
+    #redWine { order: 7; }
+    #cocktails { order: 8; }
+    #spirits { order: 9; }
   }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1030px) {
   #categories.drinks-layout {
     max-width: min(860px, calc(100vw - 32px));
+    column-gap: clamp(32px, 5vw, 56px);
+
+    #drinks {
+      column-gap: clamp(32px, 5vw, 56px);
+    }
   }
 }

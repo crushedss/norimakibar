@@ -120,10 +120,11 @@ function showFoodMenu(meal) {
   setHomeFooterVisible(false);
 
   if (meal === 'limited') {
-    $(".food").css("display", "none");
-    document.getElementById("limited").style.display = "block";
+    $(".food").not("#limited, #limited *, #smallText").css("display", "none");
+    $("#limited").css("display", "");
+    $("#limited *").css("display", "");
     if (document.getElementById("smallText")) {
-      document.getElementById("smallText").style.display = "none";
+      document.getElementById("smallText").style.display = "block";
     }
     if (document.getElementById("allergenNotice")) {
       document.getElementById("allergenNotice").style.display = "none";
@@ -133,6 +134,9 @@ function showFoodMenu(meal) {
 
   document.getElementById("limited").style.display = "none";
   $(".food:not(#limited)").css("display", "block");
+  if (document.getElementById("ramen")) {
+    document.getElementById("ramen").style.display = "none";
+  }
   if (document.getElementById("smallText")) {
     document.getElementById("smallText").style.display = "block";
   }

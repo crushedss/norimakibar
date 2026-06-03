@@ -8,7 +8,9 @@
     left: 0;
     min-height: 72px;
     height: auto;
-    padding: 14px 56px 0 20px;
+    padding: 14px 20px;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 
     nav ul {
@@ -18,20 +20,21 @@
     }
 
     .header-logo{
-      position: relative;
-      margin: 0 auto;
-      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      width: auto;
       text-align: center;
-      flex-shrink: 1;
-      min-width: 0;
+      flex-shrink: 0;
       line-height: 0;
-      transform: none;
-      left: auto;
+      z-index: 101;
 
       img{
-        width: 120px;
+        width: 148px;
         height: auto;
-        max-width: min(120px, calc(100vw - 120px));
+        max-width: min(148px, calc(100vw - 96px));
         display: block;
         margin: 0 auto;
       }
@@ -294,6 +297,46 @@
       bottom: 10px;
       width: min(135px, 36vw);
       padding: 8px 3px 2px 3px;
+    }
+
+    &.menu-meal-limited {
+      #limited {
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+        padding-left: 0;
+        padding-right: 0;
+
+        .menu-col {
+          display: contents;
+        }
+
+        #limitedStarters {
+          order: 1;
+        }
+
+        #limitedCreations {
+          order: 2;
+        }
+
+        #limitedRamen {
+          order: 3;
+          max-width: 100%;
+        }
+
+        #limitedSweets {
+          order: 4;
+        }
+
+        .limited-section,
+        #limitedRamen {
+          padding-left: 16px;
+          padding-right: calc(min(135px, 36vw) + 16px);
+          max-width: 100%;
+          box-sizing: border-box;
+          --menu-price-col: 34px;
+        }
+      }
     }
   }
 

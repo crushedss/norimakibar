@@ -28,15 +28,33 @@
   #limited {
     flex: 1 1 100%;
     width: 100%;
-    max-width: min(420px, calc(100vw - 40px));
-    margin: 0 auto;
-    @include menu-shared.menu-section-block;
-    @include menu-shared.menu-price-column;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: clamp(40px, 7vw, 72px);
+    row-gap: 0;
+
+    .menu-col {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+    }
+
+    .limited-section {
+      @include menu-shared.menu-section-block;
+    }
   }
 
-  #ramen {
+  #ramen,
+  #limitedRamen {
     --menu-desc-gap: 4px;
     --ramen-section-gap: 12px;
+    --menu-price-col: 36px;
+    --menu-price-inset: 12px;
     position: relative;
     top: auto;
     left: auto;
@@ -50,13 +68,14 @@
     @include menu-shared.menu-text-lowercase;
 
     .ramen-head {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 10px;
       align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
       margin-bottom: 0.35em;
 
       h1 {
+        grid-column: 1;
         font-weight: 200;
         font-size: 28px;
         text-align: left;
@@ -67,10 +86,14 @@
 
     .ramen-tag {
       @include menu-shared.menu-detail-text;
-      flex-shrink: 0;
+      grid-column: 2;
+      justify-self: end;
+      text-align: right;
+      margin: 0 var(--menu-price-inset) 0 0;
       white-space: nowrap;
       width: auto;
       max-width: none;
+      opacity: 0.52;
     }
 
     .ramen-menu {
@@ -125,14 +148,15 @@
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
+      --menu-price-col: 36px;
+      --menu-price-inset: 12px;
 
       li {
         display: grid;
-        grid-template-columns: minmax(0, max-content) auto;
+        grid-template-columns: minmax(0, 1fr) var(--menu-price-col);
         column-gap: 10px;
         align-items: baseline;
-        justify-content: start;
-        width: fit-content;
+        width: 100%;
         max-width: 100%;
         margin-bottom: var(--menu-desc-gap, 4px);
 
@@ -152,15 +176,18 @@
 
         h3 {
           grid-column: 2;
+          grid-row: 1;
+          justify-self: end;
+          align-self: start;
           @include mixins.typeface;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 400;
-          line-height: 1.4;
+          line-height: 1.35;
           color: black;
-          margin: 0;
+          margin: 0 var(--menu-price-inset) 0 0;
           padding: 0;
-          width: auto;
-          text-align: left;
+          width: var(--menu-price-col);
+          text-align: right;
           white-space: nowrap;
           font-variant-numeric: tabular-nums;
         }
@@ -173,24 +200,34 @@
   }
 
   #rolls {
+    --menu-price-col: 36px;
+    --menu-price-inset: 12px;
+
     .rolls-head {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 10px;
       align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
       margin-bottom: 0.75em;
 
       h1 {
+        grid-column: 1;
         margin: 0;
       }
     }
 
+    .rolls-lunch-note,
     .rolls-dinner-note {
       @include menu-shared.menu-detail-text;
-      display: none;
-      flex-shrink: 0;
-      white-space: nowrap;
+      grid-column: 2;
+      justify-self: end;
       text-align: right;
+      margin: 0 var(--menu-price-inset) 0 0;
+      display: none;
+      white-space: nowrap;
+      width: auto;
+      max-width: none;
+      opacity: 0.52;
     }
   }
 
@@ -310,20 +347,35 @@
 }
 
 #categories.menu-layout.menu-meal-limited {
-  .menu-col,
-  #smallText,
+  .menu-col:not(#limited .menu-col),
   #allergenNotice {
     display: none !important;
   }
 
+  > .menu-col {
+    display: none !important;
+  }
+
   #limited {
-    display: block;
+    display: flex;
   }
 }
 
 #categories.menu-layout.menu-meal-lunch {
   li:has(h3:not(.dinner)) h3.dinner {
     display: none;
+  }
+
+  #rolls li h3 {
+    display: none;
+  }
+
+  #rolls .rolls-lunch-note {
+    display: block;
+  }
+
+  #ramen {
+    display: none !important;
   }
 }
 
@@ -334,6 +386,10 @@
 
   #rolls .rolls-dinner-note {
     display: block;
+  }
+
+  #ramen {
+    display: none !important;
   }
 }
 
