@@ -235,21 +235,25 @@
       order: 1;
     }
 
-    #ramen {
+    #limited {
       order: 2;
+    }
+
+    #ramen {
+      order: 3;
       max-width: 100%;
     }
 
     #rolls {
-      order: 3;
-    }
-
-    #creations {
       order: 4;
     }
 
-    #sweets {
+    #creations {
       order: 5;
+    }
+
+    #sweets {
+      order: 6;
     }
 
     .menu-col > .food,

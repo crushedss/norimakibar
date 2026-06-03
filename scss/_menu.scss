@@ -20,9 +20,18 @@
     gap: 52px;
   }
 
-  > .food:not(#smallText):not(#allergenNotice):not(#ramen),
+  > .food:not(#smallText):not(#allergenNotice):not(#ramen):not(#limited),
   .menu-col > .food:not(#ramen) {
     @include menu-shared.menu-section-block;
+  }
+
+  #limited {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: min(420px, calc(100vw - 40px));
+    margin: 0 auto;
+    @include menu-shared.menu-section-block;
+    @include menu-shared.menu-price-column;
   }
 
   #ramen {
@@ -297,6 +306,18 @@
 
   br {
     display: none;
+  }
+}
+
+#categories.menu-layout.menu-meal-limited {
+  .menu-col,
+  #smallText,
+  #allergenNotice {
+    display: none !important;
+  }
+
+  #limited {
+    display: block;
   }
 }
 

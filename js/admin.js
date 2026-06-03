@@ -99,7 +99,7 @@
   function parseMenuFromDOM() {
     var sections = [];
 
-    ['starters', 'rolls', 'ramen', 'creations', 'sweets'].forEach(function (id) {
+    ['starters', 'rolls', 'ramen', 'creations', 'sweets', 'limited'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
         var title = el.querySelector('h1');

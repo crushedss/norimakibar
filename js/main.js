@@ -17,6 +17,7 @@ document.querySelector('#noriAddress').onclick = function() {
 
 var ROUTES = {
   '/concept': 'concept',
+  '/limited': 'limited',
   '/lunch': 'lunch',
   '/dinner': 'dinner',
   '/drinks': 'drinks',
@@ -65,7 +66,7 @@ function setMenuView(mode) {
 
 function setMealView(meal) {
   var categories = document.getElementById('categories');
-  categories.classList.remove('menu-meal-lunch', 'menu-meal-dinner');
+  categories.classList.remove('menu-meal-lunch', 'menu-meal-dinner', 'menu-meal-limited');
 
   if (meal === 'lunch') {
     categories.classList.add('menu-meal-lunch');
@@ -73,6 +74,10 @@ function setMealView(meal) {
 
   if (meal === 'dinner') {
     categories.classList.add('menu-meal-dinner');
+  }
+
+  if (meal === 'limited') {
+    categories.classList.add('menu-meal-limited');
   }
 }
 
@@ -102,9 +107,29 @@ function showFoodMenu(meal) {
   setMenuView('food');
   setMealView(meal);
   document.getElementById("concept").style.display = "none";
-  $(".food").css("display", "block");
   document.getElementById("drinks").style.display = "none";
   document.getElementById("location").style.display = "none";
+
+  if (meal === 'limited') {
+    $(".food").css("display", "none");
+    document.getElementById("limited").style.display = "block";
+    if (document.getElementById("smallText")) {
+      document.getElementById("smallText").style.display = "none";
+    }
+    if (document.getElementById("allergenNotice")) {
+      document.getElementById("allergenNotice").style.display = "none";
+    }
+    return;
+  }
+
+  document.getElementById("limited").style.display = "none";
+  $(".food:not(#limited)").css("display", "block");
+  if (document.getElementById("smallText")) {
+    document.getElementById("smallText").style.display = "block";
+  }
+  if (document.getElementById("allergenNotice")) {
+    document.getElementById("allergenNotice").style.display = "block";
+  }
 }
 
 function showDrinks() {
@@ -129,6 +154,9 @@ function applyRoute(path) {
   switch (page) {
     case 'concept':
       showConcept();
+      break;
+    case 'limited':
+      showFoodMenu('limited');
       break;
     case 'lunch':
       showFoodMenu('lunch');
