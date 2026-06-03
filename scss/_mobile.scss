@@ -2,23 +2,32 @@
 @media screen and (max-width: 1030px){
   html {
     scroll-padding-top: 88px;
+    height: -webkit-fill-available;
+  }
+
+  body {
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
   }
 
   #header{
     left: 0;
-    min-height: 72px;
+    min-height: 72px !important;
     height: auto;
-    padding: 14px 20px 0;
+    padding: max(14px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 
     nav ul {
       display: block;
       max-width: none;
 
       .nav-meal-desktop {
-        display: list-item;
+        display: block;
       }
 
       .nav-menu-mobile {
@@ -30,6 +39,7 @@
       position: absolute;
       left: 50%;
       top: 50%;
+      -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       margin: 0;
       width: auto;
@@ -54,7 +64,8 @@
       align-items: center;
       position: absolute;
       top: 50%;
-      right: 20px;
+      right: max(20px, env(safe-area-inset-right));
+      -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       width: 32px;
       height: 22px;
@@ -69,6 +80,7 @@
       transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
 
       &:active {
+        -webkit-transform: translateY(-50%) scale(0.88);
         transform: translateY(-50%) scale(0.88);
       }
 
@@ -101,6 +113,7 @@
       }
 
       &[aria-expanded="true"] {
+        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
 
         .nav-toggle-line:first-child {
@@ -134,15 +147,27 @@
       background: white;
       border-bottom: 1px solid #f1f2f2;
       display: none !important;
+      visibility: hidden;
+      pointer-events: none;
+      height: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: none;
+      box-shadow: none;
       z-index: 103;
-      box-shadow: 0 8px 24px rgba(black, 0.06);
 
       &.nav-open{
         display: block !important;
         visibility: visible;
-        opacity: 1;
-        transform: translateY(0) scale(1);
         pointer-events: auto;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        padding: 20px 24px 24px;
+        border-bottom: 1px solid #f1f2f2;
+        box-shadow: 0 8px 24px rgba(black, 0.06);
 
         li {
           animation: nav-item-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -209,33 +234,10 @@
     min-height: auto;
 
     .menu-col {
-      display: contents;
-      gap: 0;
-    }
-
-    #starters {
-      order: 1;
-    }
-
-    #limited {
-      order: 2;
-    }
-
-    #ramen {
-      order: 3;
-      max-width: 100%;
-    }
-
-    #rolls {
-      order: 4;
-    }
-
-    #creations {
-      order: 5;
-    }
-
-    #sweets {
-      order: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      width: 100%;
     }
 
     .menu-col > .food,
@@ -287,24 +289,10 @@
         padding-right: 0;
 
         .menu-col {
-          display: contents;
-        }
-
-        #limitedStarters {
-          order: 1;
-        }
-
-        #limitedCreations {
-          order: 2;
-        }
-
-        #limitedRamen {
-          order: 3;
-          max-width: 100%;
-        }
-
-        #limitedSweets {
-          order: 4;
+          display: flex;
+          flex-direction: column;
+          gap: 44px;
+          width: 100%;
         }
 
         .limited-section,
@@ -320,7 +308,8 @@
   }
 
   #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) {
-    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
     box-sizing: border-box;
   }
 
@@ -337,6 +326,7 @@
     position: relative;
     top: auto;
     left: auto;
+    -webkit-transform: none;
     transform: none;
     margin-top: 0;
     padding: 96px 20px 96px;
@@ -352,15 +342,10 @@
     }
   }
 
-  #categories:not(.menu-layout):not(.drinks-layout):not(.location-layout) {
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-
   #siteFooter {
-    left: 16px;
+    left: max(16px, env(safe-area-inset-left));
     right: auto;
-    bottom: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
     max-width: calc(100vw - 32px);
     z-index: 3;
   }

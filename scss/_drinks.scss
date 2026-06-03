@@ -48,7 +48,10 @@
     }
 
     .menu-col {
-      display: contents;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      width: 100%;
     }
 
     .drinks-section {
@@ -57,16 +60,6 @@
       max-width: 100%;
       box-sizing: border-box;
     }
-
-    #hotSake { order: 1; }
-    #coldSake { order: 2; }
-    #onTap { order: 3; }
-    #bottles { order: 4; }
-    #plumWine { order: 5; }
-    #whiteWine { order: 6; }
-    #redWine { order: 7; }
-    #cocktails { order: 8; }
-    #spirits { order: 9; }
   }
 }
 
