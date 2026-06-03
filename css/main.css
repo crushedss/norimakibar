@@ -1069,32 +1069,27 @@ footer {
   padding-top: 176px;
   padding-bottom: 32px;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  column-gap: clamp(40px, 7vw, 72px);
-  row-gap: 0;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
 #categories.drinks-layout #drinks {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
   justify-content: center;
+  align-items: start;
   column-gap: clamp(40px, 7vw, 72px);
   row-gap: 0;
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
   top: auto;
 }
 #categories.drinks-layout .menu-col {
-  flex: 1 1 0;
   min-width: 0;
+  max-width: min(400px, 50vw - 48px);
   display: flex;
   flex-direction: column;
   gap: 52px;
@@ -1195,29 +1190,48 @@ footer {
 #categories.drinks-layout .drinks-section h4:last-child {
   margin-bottom: 0;
 }
+#categories.drinks-layout .drinks-section {
+  --menu-price-col: 0px;
+  --menu-price-inset: 0px;
+}
+#categories.drinks-layout .drinks-section li {
+  grid-template-columns: minmax(0, 1fr);
+}
+#categories.drinks-layout .drinks-section li h2 {
+  grid-column: 1;
+}
+#categories.drinks-layout .drinks-section li h3 {
+  display: none;
+}
+#categories.drinks-layout .drinks-section h4 {
+  padding-right: 0;
+}
 
 @media screen and (max-width: 1030px) {
   #categories.drinks-layout {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    padding: 88px 0 28px;
-    display: block;
+    padding: 88px 16px 28px;
   }
   #categories.drinks-layout #drinks {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 44px;
+    width: 100%;
+    max-width: min(520px, 100%);
   }
   #categories.drinks-layout .menu-col {
     display: flex;
     flex-direction: column;
     gap: 44px;
     width: 100%;
+    max-width: 100%;
   }
   #categories.drinks-layout .drinks-section {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 0;
+    padding-right: 0;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -1225,7 +1239,6 @@ footer {
 @media screen and (min-width: 801px) and (max-width: 1030px) {
   #categories.drinks-layout {
     max-width: min(860px, 100vw - 32px);
-    column-gap: clamp(32px, 5vw, 56px);
   }
   #categories.drinks-layout #drinks {
     column-gap: clamp(32px, 5vw, 56px);
@@ -1757,7 +1770,7 @@ footer {
   #categories.drinks-layout #drinks {
     column-gap: clamp(32px, 5vw, 56px);
   }
-  #categories {
+  #categories:not(.menu-layout):not(.drinks-layout):not(.location-layout) {
     margin-left: 0;
   }
   #smallText {

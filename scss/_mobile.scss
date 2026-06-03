@@ -379,7 +379,7 @@
     }
   }
 
-  #categories{
+  #categories:not(.menu-layout):not(.drinks-layout):not(.location-layout){
     margin-left: 0;
   }
 
