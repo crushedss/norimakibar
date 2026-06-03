@@ -365,14 +365,6 @@
 
 /*--TABLET--*/
 @media screen and (min-width:801px) and (max-width:1030px){
-  #header{
-    img{
-      margin-left: 40vw;
-    }
-    nav{
-      margin-left: 13vw;
-    }
-  }
   #categories.menu-layout {
     max-width: min(860px, calc(100vw - 32px));
     column-gap: clamp(32px, 5vw, 56px);

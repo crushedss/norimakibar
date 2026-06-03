@@ -76,17 +76,25 @@ span {
 }
 #header nav {
   position: relative;
-  margin: 14px 0 0;
+  margin: 14px auto 0;
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-shrink: 0;
 }
 #header nav ul {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(12px, 2.4vw, 42px);
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  max-width: calc(100% - 32px);
 }
 #header nav ul li {
   letter-spacing: 3px;
@@ -106,7 +114,7 @@ span {
   display: none;
 }
 #header nav ul .nav-menu-mobile {
-  display: list-item;
+  display: block;
 }
 #header nav ul .nav-menu-toggle {
   font-family: mr-eaves-modern, sans-serif;
@@ -165,16 +173,15 @@ span {
   html {
     scroll-padding-top: 176px;
   }
-  #header nav ul {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: clamp(18px, 3.2vw, 42px);
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  #header {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  #header .header-logo {
+    margin-left: auto;
+    margin-right: auto;
   }
   #header nav ul li {
     flex: 0 0 auto;
@@ -182,10 +189,14 @@ span {
     white-space: nowrap;
   }
   #header nav ul .nav-meal-desktop {
-    display: list-item;
+    display: block;
   }
   #header nav ul .nav-menu-mobile {
     display: none;
+  }
+  #header hr {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 #message {
@@ -1501,12 +1512,6 @@ footer {
 }
 /*--TABLET--*/
 @media screen and (min-width: 801px) and (max-width: 1030px) {
-  #header img {
-    margin-left: 40vw;
-  }
-  #header nav {
-    margin-left: 13vw;
-  }
   #categories.menu-layout {
     max-width: min(860px, 100vw - 32px);
     column-gap: clamp(32px, 5vw, 56px);

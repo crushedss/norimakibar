@@ -84,17 +84,25 @@ span {
 
   nav{
     position: relative;
-    margin: 14px 0 0;
+    margin: 14px auto 0;
     width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-shrink: 0;
 
     ul{
-      display: flex;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: clamp(12px, 2.4vw, 42px);
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 0 auto;
+      max-width: calc(100% - 32px);
       li{
         letter-spacing: 3px;
         @include mixins.link;
@@ -109,7 +117,7 @@ span {
       }
 
       .nav-menu-mobile {
-        display: list-item;
+        display: block;
       }
 
       .nav-menu-toggle {
@@ -176,18 +184,18 @@ span {
   }
 
   #header {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+
+    .header-logo {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     nav {
       ul {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: center;
-        flex-wrap: nowrap;
-        gap: clamp(18px, 3.2vw, 42px);
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
         li {
           flex: 0 0 auto;
           padding: 0;
@@ -195,13 +203,18 @@ span {
         }
 
         .nav-meal-desktop {
-          display: list-item;
+          display: block;
         }
 
         .nav-menu-mobile {
           display: none;
         }
       }
+    }
+
+    hr {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
