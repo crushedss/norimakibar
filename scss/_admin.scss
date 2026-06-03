@@ -27,18 +27,23 @@
 
   #noriAdminLogin,
   #noriAdminDashboard {
-    display: flex !important;
+    display: none !important;
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 200;
     flex-direction: column;
     background: white;
     transform: translateY(100%);
     transition: transform 0.3s ease;
     overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
 
     &.nori-admin-overlay--visible {
+      display: flex !important;
       transform: translateY(0);
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 
