@@ -102,6 +102,12 @@ span {
 #header nav ul li.nav-menu-group {
   position: relative;
 }
+#header nav ul .nav-meal-desktop {
+  display: none;
+}
+#header nav ul .nav-menu-mobile {
+  display: list-item;
+}
 #header nav ul .nav-menu-toggle {
   font-family: mr-eaves-modern, sans-serif;
   display: inline-flex;
@@ -175,55 +181,11 @@ span {
     padding: 0;
     white-space: nowrap;
   }
-  #header nav ul li.nav-menu-group {
-    display: flex;
-    align-items: baseline;
-    gap: clamp(18px, 3.2vw, 42px);
+  #header nav ul .nav-meal-desktop {
+    display: list-item;
   }
-  #header nav ul .nav-chevron {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: none;
-    transform: rotate(45deg);
-  }
-  #header nav ul .nav-menu-group.is-open .nav-chevron {
-    transform: rotate(-135deg);
-  }
-  #header nav ul .nav-menu-group .nav-submenu {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: clamp(18px, 3.2vw, 42px);
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    max-width: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: max-width 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.24s ease;
-  }
-  #header nav ul .nav-menu-group .nav-submenu li {
-    flex: 0 0 auto;
-    padding: 0;
-  }
-  #header nav ul .nav-menu-group .nav-submenu li a {
-    font-size: 14px;
-    letter-spacing: 2px;
-    opacity: 0.72;
-  }
-  #header nav ul .nav-menu-group .nav-submenu[hidden] {
-    display: none !important;
-    max-width: 0 !important;
-    opacity: 0 !important;
-  }
-  #header nav ul .nav-menu-group.is-open .nav-submenu:not([hidden]) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: baseline;
-    max-width: 220px;
-    opacity: 1;
-    pointer-events: auto;
+  #header nav ul .nav-menu-mobile {
+    display: none;
   }
 }
 #message {
@@ -1244,6 +1206,9 @@ footer {
     height: auto;
     padding: 14px 56px 0 20px;
     align-items: center;
+  }
+  #header nav ul .nav-meal-desktop {
+    display: none;
   }
   #header .header-logo {
     position: relative;
