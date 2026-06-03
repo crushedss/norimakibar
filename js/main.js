@@ -90,7 +90,7 @@ function closeMenuSubnav() {
   if (toggle) toggle.setAttribute('aria-expanded', 'false');
   if (subnav) subnav.hidden = true;
 
-  if (window.matchMedia('(min-width: 801px)').matches) {
+  if (window.matchMedia('(min-width: 1031px)').matches) {
     document.body.classList.remove('nav-desktop-menu-open');
   }
 }
@@ -249,7 +249,7 @@ if (menuToggle) {
     this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     subnav.hidden = !isOpen;
 
-    if (window.matchMedia('(min-width: 801px)').matches) {
+    if (window.matchMedia('(min-width: 1031px)').matches) {
       document.body.classList.toggle('nav-desktop-menu-open', isOpen);
     }
   });

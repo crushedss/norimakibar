@@ -1,5 +1,5 @@
 /*--MOBILE--*/
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1030px){
   html {
     scroll-padding-top: 88px;
   }
@@ -8,14 +8,21 @@
     left: 0;
     min-height: 72px;
     height: auto;
-    padding: 14px 20px;
+    padding: 14px 20px 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
     nav ul {
+      display: block;
+      max-width: none;
+
       .nav-meal-desktop {
-        display: none;
+        display: list-item;
+      }
+
+      .nav-menu-mobile {
+        display: none !important;
       }
     }
 
@@ -126,12 +133,12 @@
       padding: 20px 24px 24px;
       background: white;
       border-bottom: 1px solid #f1f2f2;
-      display: none;
+      display: none !important;
       z-index: 103;
       box-shadow: 0 8px 24px rgba(black, 0.06);
 
       &.nav-open{
-        display: block;
+        display: block !important;
         visibility: visible;
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -140,7 +147,7 @@
         li {
           animation: nav-item-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 
-          @for $i from 1 through 4 {
+          @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
               animation-delay: #{0.06 + ($i * 0.05)}s;
             }
@@ -148,28 +155,7 @@
         }
 
         .nav-menu-group {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-
-          .nav-submenu {
-            width: 100%;
-            padding: 6px 0 0 14px;
-
-            li {
-              padding: 0 0 10px;
-
-              &:last-child {
-                padding-bottom: 4px;
-              }
-
-              a {
-                font-size: 14px;
-                letter-spacing: 2px;
-                opacity: 0.72;
-              }
-            }
-          }
+          display: none !important;
         }
       }
 
@@ -334,48 +320,8 @@
   }
 
   #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) {
-    #hotSake, #coldSake, #onTap, #bottles, #plumWine, #whiteWine, #redWine, #cocktails, #spirits, #info {
-      padding-left: 10px;
-
-      h1 {
-        text-align: left;
-      }
-
-      h4 {
-        padding-left: 0;
-        text-align: left;
-      }
-    }
-
-    #hotSake {
-      top: 96px;
-    }
-
-    #coldSake {
-      top: 325px;
-    }
-
-    #onTap {
-      top: 850px;
-    }
-
-    #bottles {
-      top: 1050px;
-    }
-
-    #plumWine,
-    #whiteWine,
-    #redWine {
-      top: 1225px;
-    }
-
-    #cocktails {
-      top: 1700px;
-    }
-
-    #spirits {
-      top: 1900px;
-    }
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
   .food ul {
@@ -446,13 +392,6 @@
     #drinks {
       column-gap: clamp(32px, 5vw, 56px);
     }
-  }
-
-  #concept{
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 34vh;
-    width: min(560px, 88vw);
   }
 
   #categories{

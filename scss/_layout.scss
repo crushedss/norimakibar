@@ -32,6 +32,16 @@ body{
   }
 }
 
+@media screen and (max-width: 1030px) {
+  #concept {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 0;
+  }
+}
+
 // Drinks + location keep absolute layout (legacy — overridden by .drinks-layout / .location-layout)
 #categories:not(.drinks-layout):not(.location-layout) {
   #hotSake, #coldSake, #onTap, #bottles, #wine, #cocktails, #spirits, #info{

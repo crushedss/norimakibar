@@ -114,7 +114,7 @@ span {
   display: none;
 }
 #header nav ul .nav-menu-mobile {
-  display: block;
+  display: none;
 }
 #header nav ul .nav-menu-toggle {
   font-family: mr-eaves-modern, sans-serif;
@@ -169,7 +169,7 @@ span {
   border: white;
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 1031px) {
   html {
     scroll-padding-top: 176px;
   }
@@ -293,6 +293,15 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 1030px) {
+  #concept {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 0;
+  }
+}
 #categories:not(.drinks-layout):not(.location-layout) #hotSake, #categories:not(.drinks-layout):not(.location-layout) #coldSake, #categories:not(.drinks-layout):not(.location-layout) #onTap, #categories:not(.drinks-layout):not(.location-layout) #bottles, #categories:not(.drinks-layout):not(.location-layout) #wine, #categories:not(.drinks-layout):not(.location-layout) #cocktails, #categories:not(.drinks-layout):not(.location-layout) #spirits, #categories:not(.drinks-layout):not(.location-layout) #info {
   font-family: mr-eaves-modern, sans-serif;
 }
@@ -1184,7 +1193,7 @@ footer {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1030px) {
   #categories.drinks-layout {
     margin-left: auto;
     margin-right: auto;
@@ -1392,7 +1401,7 @@ footer {
     align-self: flex-start;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1030px) {
   #categories.location-layout {
     margin-left: auto;
     margin-right: auto;
@@ -1429,7 +1438,7 @@ footer {
   }
 }
 /*--MOBILE--*/
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1030px) {
   html {
     scroll-padding-top: 88px;
   }
@@ -1437,13 +1446,20 @@ footer {
     left: 0;
     min-height: 72px;
     height: auto;
-    padding: 14px 20px;
+    padding: 14px 20px 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
+  #header nav ul {
+    display: block;
+    max-width: none;
+  }
   #header nav ul .nav-meal-desktop {
-    display: none;
+    display: list-item;
+  }
+  #header nav ul .nav-menu-mobile {
+    display: none !important;
   }
   #header .header-logo {
     position: absolute;
@@ -1537,12 +1553,12 @@ footer {
     padding: 20px 24px 24px;
     background: white;
     border-bottom: 1px solid #f1f2f2;
-    display: none;
+    display: none !important;
     z-index: 103;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
   #header nav.nav-open {
-    display: block;
+    display: block !important;
     visibility: visible;
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1563,25 +1579,14 @@ footer {
   #header nav.nav-open li:nth-child(4) {
     animation-delay: 0.26s;
   }
+  #header nav.nav-open li:nth-child(5) {
+    animation-delay: 0.31s;
+  }
+  #header nav.nav-open li:nth-child(6) {
+    animation-delay: 0.36s;
+  }
   #header nav.nav-open .nav-menu-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #header nav.nav-open .nav-menu-group .nav-submenu {
-    width: 100%;
-    padding: 6px 0 0 14px;
-  }
-  #header nav.nav-open .nav-menu-group .nav-submenu li {
-    padding: 0 0 10px;
-  }
-  #header nav.nav-open .nav-menu-group .nav-submenu li:last-child {
-    padding-bottom: 4px;
-  }
-  #header nav.nav-open .nav-menu-group .nav-submenu li a {
-    font-size: 14px;
-    letter-spacing: 2px;
-    opacity: 0.72;
+    display: none !important;
   }
   #header nav ul {
     display: block;
@@ -1712,38 +1717,9 @@ footer {
     box-sizing: border-box;
     --menu-price-col: 34px;
   }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #hotSake, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #coldSake, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #onTap, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #bottles, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #plumWine, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #whiteWine, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #redWine, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #cocktails, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #spirits, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #info {
-    padding-left: 10px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #hotSake h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #coldSake h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #onTap h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #bottles h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #plumWine h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #whiteWine h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #redWine h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #cocktails h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #spirits h1, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #info h1 {
-    text-align: left;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #hotSake h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #coldSake h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #onTap h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #bottles h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #plumWine h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #whiteWine h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #redWine h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #cocktails h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #spirits h4, #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #info h4 {
-    padding-left: 0;
-    text-align: left;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #hotSake {
-    top: 96px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #coldSake {
-    top: 325px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #onTap {
-    top: 850px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #bottles {
-    top: 1050px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #plumWine,
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #whiteWine,
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #redWine {
-    top: 1225px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #cocktails {
-    top: 1700px;
-  }
-  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) #spirits {
-    top: 1900px;
+  #categories:not(.drinks-layout):not(.menu-layout):not(.location-layout) {
+    min-height: 100vh;
+    box-sizing: border-box;
   }
   .food ul {
     padding: 0;
@@ -1802,12 +1778,6 @@ footer {
   }
   #categories.drinks-layout #drinks {
     column-gap: clamp(32px, 5vw, 56px);
-  }
-  #concept {
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 34vh;
-    width: min(560px, 88vw);
   }
   #categories {
     margin-left: 0;
