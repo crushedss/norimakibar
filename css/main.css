@@ -271,36 +271,97 @@ body {
 }
 
 #home {
-  font-family: mr-eaves-modern, sans-serif;
-}
-#home h1 {
-  font-weight: 200;
-  font-size: 28px;
-  text-align: center;
-}
-#home {
-  margin-top: 40vh;
-  text-align: center;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(640px, 88vw);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(920px, 100vw - 40px);
+  padding-top: 176px;
+  padding-bottom: 32px;
   box-sizing: border-box;
+  position: relative;
+  display: block;
+  pointer-events: none;
+  min-height: calc(100vh - 208px);
+  min-height: calc(100dvh - 208px);
 }
-#home p {
-  margin-left: 0;
-  width: auto;
-  text-align: center;
+#home .home-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+#home .home-brand {
+  text-align: left;
+}
+#home .home-brand__name {
+  font-weight: 200;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+#home .home-brand__sub {
+  font-weight: 200;
+  font-size: clamp(14px, 1.6vw, 18px);
+  letter-spacing: 0.08em;
+  margin: 0.35em 0 0;
+  text-transform: lowercase;
+}
+#home .home-divider {
+  display: block;
+  width: min(168px, 42%);
+  height: 1px;
+  background: black;
+  margin: 22px 0 18px;
+}
+#home .home-copy__label {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+#home .home-copy__text {
+  font-weight: 200;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  max-width: min(620px, 100%);
+}
+#home .home-copy__tagline {
+  font-weight: 200;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.45;
+  margin: 0;
+  opacity: 0.52;
+  max-width: min(620px, 100%);
 }
 
 @media screen and (max-width: 1030px) {
   #home {
-    position: relative;
-    top: auto;
-    left: auto;
-    -webkit-transform: none;
-    transform: none;
-    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding: 88px 0 96px;
+    min-height: calc(100vh - 168px);
+    min-height: calc(100dvh - 168px);
+  }
+  #home .home-layout {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  #home .home-copy__text,
+  #home .home-copy__tagline {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1030px) {
+  #home {
+    max-width: min(860px, 100vw - 32px);
   }
 }
 #categories:not(.drinks-layout):not(.location-layout) #hotSake, #categories:not(.drinks-layout):not(.location-layout) #coldSake, #categories:not(.drinks-layout):not(.location-layout) #onTap, #categories:not(.drinks-layout):not(.location-layout) #bottles, #categories:not(.drinks-layout):not(.location-layout) #wine, #categories:not(.drinks-layout):not(.location-layout) #cocktails, #categories:not(.drinks-layout):not(.location-layout) #spirits, #categories:not(.drinks-layout):not(.location-layout) #info {
@@ -1069,27 +1130,31 @@ footer {
   padding-top: 176px;
   padding-bottom: 32px;
   box-sizing: border-box;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-#categories.drinks-layout #drinks {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, max-content));
-  justify-content: center;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   column-gap: clamp(40px, 7vw, 72px);
   row-gap: 0;
-  width: fit-content;
+  width: 100%;
+  min-height: auto;
+  position: relative;
+  isolation: isolate;
+}
+#categories.drinks-layout #drinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: clamp(40px, 7vw, 72px);
+  row-gap: 0;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   top: auto;
 }
 #categories.drinks-layout .menu-col {
+  flex: 1 1 0;
   min-width: 0;
-  max-width: min(400px, 50vw - 48px);
   display: flex;
   flex-direction: column;
   gap: 52px;
@@ -1190,20 +1255,35 @@ footer {
 #categories.drinks-layout .drinks-section h4:last-child {
   margin-bottom: 0;
 }
-#categories.drinks-layout .drinks-section {
+#categories.drinks-layout .drinks-subhead {
+  font-family: mr-eaves-modern, sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0.85em 0 0.5em;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+#categories.drinks-layout .drinks-subhead:first-of-type {
+  margin-top: 0;
+}
+#categories.drinks-layout #tapWine .drinks-subhead:first-of-type {
+  margin-top: 0;
+}
+#categories.drinks-layout #tapWine ul + .drinks-subhead {
+  margin-top: 1.25em;
+}
+#categories.drinks-layout .drinks-section--no-prices {
   --menu-price-col: 0px;
   --menu-price-inset: 0px;
 }
-#categories.drinks-layout .drinks-section li {
+#categories.drinks-layout .drinks-section--no-prices li {
   grid-template-columns: minmax(0, 1fr);
 }
-#categories.drinks-layout .drinks-section li h2 {
+#categories.drinks-layout .drinks-section--no-prices li h2 {
   grid-column: 1;
 }
-#categories.drinks-layout .drinks-section li h3 {
-  display: none;
-}
-#categories.drinks-layout .drinks-section h4 {
+#categories.drinks-layout .drinks-section--no-prices h4 {
   padding-right: 0;
 }
 
@@ -1212,33 +1292,35 @@ footer {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    padding: 88px 16px 28px;
+    padding: 88px 0 28px;
   }
   #categories.drinks-layout #drinks {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 44px;
     width: 100%;
-    max-width: min(520px, 100%);
   }
   #categories.drinks-layout .menu-col {
     display: flex;
     flex-direction: column;
     gap: 44px;
     width: 100%;
-    max-width: 100%;
   }
   #categories.drinks-layout .drinks-section {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 16px;
+    padding-right: calc(min(135px, 36vw) + 16px);
     max-width: 100%;
     box-sizing: border-box;
+    --menu-price-col: 34px;
+  }
+  #categories.drinks-layout .drinks-section--no-prices {
+    padding-right: 16px;
   }
 }
 @media screen and (min-width: 801px) and (max-width: 1030px) {
   #categories.drinks-layout {
     max-width: min(860px, 100vw - 32px);
+    padding-top: 176px;
   }
   #categories.drinks-layout #drinks {
     column-gap: clamp(32px, 5vw, 56px);
@@ -1723,22 +1805,15 @@ footer {
     width: auto;
   }
   #home {
-    position: relative;
-    top: auto;
-    left: auto;
-    -webkit-transform: none;
-    transform: none;
-    margin-top: 0;
-    padding: 96px 20px 96px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  #home p {
     margin-left: auto;
     margin-right: auto;
-    max-width: min(520px, 100%);
+    max-width: 100%;
+    padding: 88px 0 96px;
+  }
+  #home .home-layout {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
   }
   #siteFooter {
     left: max(16px, env(safe-area-inset-left));
@@ -1766,6 +1841,8 @@ footer {
   }
   #categories.drinks-layout {
     max-width: min(860px, 100vw - 32px);
+    padding-top: 176px;
+    column-gap: clamp(32px, 5vw, 56px);
   }
   #categories.drinks-layout #drinks {
     column-gap: clamp(32px, 5vw, 56px);

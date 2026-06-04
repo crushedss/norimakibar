@@ -1,29 +1,34 @@
+@use "mixins";
 @use "menu-shared";
 
 #categories.drinks-layout {
   @include menu-shared.menu-page-shell;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: clamp(40px, 7vw, 72px);
+  row-gap: 0;
   width: 100%;
+  min-height: auto;
+  position: relative;
+  isolation: isolate;
 
   #drinks {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, max-content));
-    justify-content: center;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     column-gap: clamp(40px, 7vw, 72px);
     row-gap: 0;
-    width: fit-content;
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     top: auto;
   }
 
   .menu-col {
+    flex: 1 1 0;
     min-width: 0;
-    max-width: min(400px, calc(50vw - 48px));
     display: flex;
     flex-direction: column;
     gap: 52px;
@@ -31,6 +36,33 @@
 
   .drinks-section {
     @include menu-shared.menu-section-block;
+  }
+
+  .drinks-subhead {
+    @include mixins.typeface;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0.85em 0 0.5em;
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  #tapWine {
+    .drinks-subhead:first-of-type {
+      margin-top: 0;
+    }
+
+    ul + .drinks-subhead {
+      margin-top: 1.25em;
+    }
+  }
+
+  .drinks-section--no-prices {
     --menu-price-col: 0px;
     --menu-price-inset: 0px;
 
@@ -39,10 +71,6 @@
 
       h2 {
         grid-column: 1;
-      }
-
-      h3 {
-        display: none;
       }
     }
 
@@ -57,15 +85,13 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    padding: 88px 16px 28px;
+    padding: 88px 0 28px;
 
     #drinks {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 44px;
       width: 100%;
-      max-width: min(520px, 100%);
     }
 
     .menu-col {
@@ -73,14 +99,18 @@
       flex-direction: column;
       gap: 44px;
       width: 100%;
-      max-width: 100%;
     }
 
     .drinks-section {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 16px;
+      padding-right: calc(min(135px, 36vw) + 16px);
       max-width: 100%;
       box-sizing: border-box;
+      --menu-price-col: 34px;
+    }
+
+    .drinks-section--no-prices {
+      padding-right: 16px;
     }
   }
 }
@@ -88,6 +118,7 @@
 @media screen and (min-width: 801px) and (max-width: 1030px) {
   #categories.drinks-layout {
     max-width: min(860px, calc(100vw - 32px));
+    padding-top: 176px;
 
     #drinks {
       column-gap: clamp(32px, 5vw, 56px);

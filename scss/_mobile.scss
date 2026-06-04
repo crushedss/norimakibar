@@ -323,22 +323,15 @@
   }
 
   #home {
-    position: relative;
-    top: auto;
-    left: auto;
-    -webkit-transform: none;
-    transform: none;
-    margin-top: 0;
-    padding: 96px 20px 96px;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
-    box-sizing: border-box;
-    text-align: center;
+    padding: 88px 0 96px;
 
-    p {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: min(520px, 100%);
+    .home-layout {
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
     }
   }
 
@@ -373,6 +366,8 @@
 
   #categories.drinks-layout {
     max-width: min(860px, calc(100vw - 32px));
+    padding-top: 176px;
+    column-gap: clamp(32px, 5vw, 56px);
 
     #drinks {
       column-gap: clamp(32px, 5vw, 56px);
