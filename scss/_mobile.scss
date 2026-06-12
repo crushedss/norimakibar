@@ -240,6 +240,34 @@
       width: 100%;
     }
 
+    .menu-col--left {
+      order: 1;
+
+      #starters {
+        order: 1;
+      }
+
+      #ramen {
+        order: 2;
+      }
+
+      #rolls {
+        order: 3;
+      }
+    }
+
+    .menu-col--right {
+      order: 2;
+
+      #creations {
+        order: 1;
+      }
+
+      #sweets {
+        order: 2;
+      }
+    }
+
     .menu-col > .food,
     #ramen {
       padding-left: 16px;
@@ -278,32 +306,6 @@
       bottom: 10px;
       width: min(135px, 36vw);
       padding: 8px 3px 2px 3px;
-    }
-
-    &.menu-meal-limited {
-      #limited {
-        display: flex;
-        flex-direction: column;
-        gap: 44px;
-        padding-left: 0;
-        padding-right: 0;
-
-        .menu-col {
-          display: flex;
-          flex-direction: column;
-          gap: 44px;
-          width: 100%;
-        }
-
-        .limited-section,
-        #limitedRamen {
-          padding-left: 16px;
-          padding-right: calc(min(135px, 36vw) + 16px);
-          max-width: 100%;
-          box-sizing: border-box;
-          --menu-price-col: 34px;
-        }
-      }
     }
   }
 

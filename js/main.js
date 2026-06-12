@@ -17,8 +17,6 @@ document.querySelector('#noriAddress').onclick = function() {
 
 var ROUTES = {
   '/home': 'home',
-  '/concept': 'limited',
-  '/limited': 'limited',
   '/lunch': 'lunch',
   '/dinner': 'dinner',
   '/drinks': 'drinks',
@@ -35,8 +33,8 @@ function normalizePath(path) {
     clean = clean.slice(0, -1);
   }
 
-  if (clean === '/limited') {
-    clean = '/concept';
+  if (clean === '/concept' || clean === '/limited') {
+    clean = '/lunch';
   }
 
   return ROUTES[clean] ? clean : '/home';
@@ -71,7 +69,7 @@ function setMenuView(mode) {
 
 function setMealView(meal) {
   var categories = document.getElementById('categories');
-  categories.classList.remove('menu-meal-lunch', 'menu-meal-dinner', 'menu-meal-limited');
+  categories.classList.remove('menu-meal-lunch', 'menu-meal-dinner');
 
   if (meal === 'lunch') {
     categories.classList.add('menu-meal-lunch');
@@ -79,10 +77,6 @@ function setMealView(meal) {
 
   if (meal === 'dinner') {
     categories.classList.add('menu-meal-dinner');
-  }
-
-  if (meal === 'limited') {
-    categories.classList.add('menu-meal-limited');
   }
 }
 
@@ -124,24 +118,7 @@ function showFoodMenu(meal) {
   document.getElementById("location").style.display = "none";
   setHomeFooterVisible(false);
 
-  if (meal === 'limited') {
-    $(".food").not("#limited, #limited *, #smallText").css("display", "none");
-    $("#limited").css("display", "");
-    $("#limited *").css("display", "");
-    if (document.getElementById("smallText")) {
-      document.getElementById("smallText").style.display = "block";
-    }
-    if (document.getElementById("allergenNotice")) {
-      document.getElementById("allergenNotice").style.display = "none";
-    }
-    return;
-  }
-
-  document.getElementById("limited").style.display = "none";
-  $(".food:not(#limited)").css("display", "block");
-  if (document.getElementById("ramen")) {
-    document.getElementById("ramen").style.display = "none";
-  }
+  $(".food").css("display", "block");
   if (document.getElementById("smallText")) {
     document.getElementById("smallText").style.display = "block";
   }
@@ -174,9 +151,6 @@ function applyRoute(path) {
   switch (page) {
     case 'home':
       showHome();
-      break;
-    case 'limited':
-      showFoodMenu('limited');
       break;
     case 'lunch':
       showFoodMenu('lunch');
