@@ -15,7 +15,7 @@ document.querySelector('#noriAddress').onclick = function() {
   copyClipboard('200 A Walnut Street, Fort Collins, CO 80524');
 }
 
-var SITE_ORIGIN = 'https://norimakibar.com';
+var SITE_ORIGIN = 'https://www.norimakibar.com';
 
 var ROUTES = {
   '/home': 'home',

@@ -1,7 +1,14 @@
-# Nori Maki Bar — https://norimakibar.com
+# Nori Maki Bar — https://www.norimakibar.com
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /apple-touch-icon.png
+Allow: /img/
 Disallow: /home.html
 Disallow: /404.shtml
 
-Sitemap: https://norimakibar.com/sitemap.xml
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://www.norimakibar.com/sitemap.xml
