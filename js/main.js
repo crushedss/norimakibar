@@ -15,6 +15,8 @@ document.querySelector('#noriAddress').onclick = function() {
   copyClipboard('200 A Walnut Street, Fort Collins, CO 80524');
 }
 
+var SITE_ORIGIN = 'https://norimakibar.com';
+
 var ROUTES = {
   '/home': 'home',
   '/lunch': 'lunch',
@@ -22,6 +24,53 @@ var ROUTES = {
   '/drinks': 'drinks',
   '/location-hours': 'location'
 };
+
+var PAGE_SEO = {
+  home: {
+    title: 'Nori Maki Bar | Sushi, Ramen & Maki Rolls in Old Town Fort Collins',
+    description: 'Nori Maki Bar is an Old Town Fort Collins sushi restaurant serving creative maki rolls, sashimi, ramen, lunch, dinner, and drinks. Dine-in and take-out at 200 A Walnut Street. Call (970) 930-6254.',
+    path: '/home'
+  },
+  lunch: {
+    title: 'Lunch Menu | Nori Maki Bar Fort Collins — 2 Rolls for $16',
+    description: 'Lunch menu at Nori Maki Bar in Old Town Fort Collins: starters, ramen, classic rolls (2 for $16), specialty creations, and sweets. Dine-in and take-out.',
+    path: '/lunch'
+  },
+  dinner: {
+    title: 'Dinner Menu | Nori Maki Bar Fort Collins Sushi & Ramen',
+    description: 'Dinner menu at Nori Maki Bar: creative maki rolls, dragon rolls, sashimi, ramen, starters, and sweets in Old Town Fort Collins. Open late for dine-in and take-out.',
+    path: '/dinner'
+  },
+  drinks: {
+    title: 'Drinks Menu | Sake, Wine & Cocktails — Nori Maki Bar Fort Collins',
+    description: 'Drinks at Nori Maki Bar Fort Collins: hot and cold sake, wine by the glass and bottle, beer, and cocktails. Pair with sushi and ramen in Old Town.',
+    path: '/drinks'
+  },
+  location: {
+    title: 'Location & Hours | Nori Maki Bar — 200 A Walnut St, Old Town Fort Collins',
+    description: 'Visit Nori Maki Bar at 200 A Walnut Street, Fort Collins, CO 80524. Hours: Mon–Sat 11am–9pm, Sun 3pm–9pm. Call (970) 930-6254 for dine-in and take-out.',
+    path: '/location-hours'
+  }
+};
+
+function setMetaTag(selector, attr, value) {
+  var el = document.querySelector(selector);
+  if (el) el.setAttribute(attr, value);
+}
+
+function updatePageSeo(page) {
+  var seo = PAGE_SEO[page] || PAGE_SEO.home;
+  var url = SITE_ORIGIN + seo.path;
+
+  document.title = seo.title;
+  setMetaTag('meta[name="description"]', 'content', seo.description);
+  setMetaTag('link[rel="canonical"]', 'href', url);
+  setMetaTag('meta[property="og:url"]', 'content', url);
+  setMetaTag('meta[property="og:title"]', 'content', seo.title);
+  setMetaTag('meta[property="og:description"]', 'content', seo.description);
+  setMetaTag('meta[name="twitter:title"]', 'content', seo.title);
+  setMetaTag('meta[name="twitter:description"]', 'content', seo.description);
+}
 
 function normalizePath(path) {
   if (!path || path === '/' || path === '/index.html') {
@@ -167,6 +216,8 @@ function applyRoute(path) {
     default:
       showHome();
   }
+
+  updatePageSeo(page);
 }
 
 function navigate(path, replace) {

@@ -52,6 +52,12 @@
       margin: 24px 0 16px;
     }
 
+    .location-address {
+      display: block;
+      margin: 0;
+      font-style: normal;
+    }
+
     a {
       @include mixins.typeface;
       color: black;

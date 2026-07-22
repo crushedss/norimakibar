@@ -37,6 +37,14 @@ body{
     text-align: left;
 
     &__name {
+      margin: 0;
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    &__title {
+      display: block;
       font-weight: 200;
       font-size: clamp(56px, 8vw, 96px);
       line-height: 1;
@@ -46,6 +54,7 @@ body{
     }
 
     &__sub {
+      display: block;
       font-weight: 200;
       font-size: clamp(14px, 1.6vw, 18px);
       letter-spacing: 0.08em;

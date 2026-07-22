@@ -1,0 +1,7 @@
+# Nori Maki Bar — https://norimakibar.com
+User-agent: *
+Allow: /
+Disallow: /home.html
+Disallow: /404.shtml
+
+Sitemap: https://norimakibar.com/sitemap.xml

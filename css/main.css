@@ -294,6 +294,13 @@ body {
   text-align: left;
 }
 #home .home-brand__name {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+#home .home-brand__title {
+  display: block;
   font-weight: 200;
   font-size: clamp(56px, 8vw, 96px);
   line-height: 1;
@@ -302,6 +309,7 @@ body {
   text-transform: lowercase;
 }
 #home .home-brand__sub {
+  display: block;
   font-weight: 200;
   font-size: clamp(14px, 1.6vw, 18px);
   letter-spacing: 0.08em;
@@ -1229,6 +1237,11 @@ footer {
 }
 #categories.location-layout #info .location-contact {
   margin: 24px 0 16px;
+}
+#categories.location-layout #info .location-address {
+  display: block;
+  margin: 0;
+  font-style: normal;
 }
 #categories.location-layout #info a {
   font-family: mr-eaves-modern, sans-serif;
